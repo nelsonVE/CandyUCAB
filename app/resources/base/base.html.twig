@@ -1,0 +1,64 @@
+{# Base para todas las vistas #}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block titulo %}CandyUcab - Inicio{% endblock %}</title>
+    <link rel="stylesheet" href="app/include/css/header.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-expand-lg navbar-candy scrolling-navbar navbar-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Twemoji2_1f36c.svg/512px-Twemoji2_1f36c.svg.png" width="32" height="32">
+          CandyUcab
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% block activeInicio %}active{% endblock %}">
+              <a class="nav-link" href="index.php?controller=index&action=index">Inicio</span></a>
+            </li>
+            <li class="nav-item {% block activeTienda %}{% endblock %}">
+              <a class="nav-link" href="index.php?controller=index&action=tienda">Tienda</a>
+            </li>
+            <li class="nav-item {% block activeContacto %}{% endblock %}">
+              <a class="nav-link" href="index.php?controller=index&action=contactanos">Contáctanos</a>
+            </li>
+            <li class="nav-item {% block activeAcerca %}{% endblock %}">
+              <a class="nav-link" href="index.php?controller=index&action=acerca">Acerca de nostros</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item mr-3">
+              <a class="nav-link" href="#">Login</span></a>
+            </li>
+            <li class="">
+              <a class="nav-link btn-pink" href="#">Regístrate</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+    {% include 'base/base.footer.twig' %}
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+database:
+  host: localhost
+  nombre: test
+  usuario: root
+  pass:
+  puerto: 5432
+  driver: postgresql
+
+site:
+  nombre: CandyUcab
+  desc: Dulcería CandyUcab
+  author: Grupo de Bases 1 UCAB
+  url: localhost/candy-ucab/
+
+framework:
+  version: 1.0dev
+  debug: false

@@ -2,10 +2,14 @@
 
 body{
   font-family: 'Quicksand', sans-serif;
-	background-image: url('../../../view/images/bg.jpg');
+	background-image: url('../../view/images/bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding-top: 58px;
+}
+
+.footer{
+  background-color: rgb(35, 35, 35);
 }
 
 .navbar-candy {
@@ -35,21 +39,22 @@ body{
 	transition: ease-out .1s;
     color: #ffffff;
     border-bottom: 3px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .bg-trans{
   background-color: rgba(150, 32, 75, 0.8);
-	min-height: 300px;
+	min-height: 400px;
 }
 
 .bg-content{
 	background-color: #fff;
-	min-height: 300px;
+	min-height: 400px;
 }
 
 .bg-content-main{
-	background-color: rgba(150, 32, 75, 0.7);
-	min-height: 300px;
+	background-color: rgba(0, 0, 0, 0.6);
+	min-height: 400px;
 }
 
 .reg-button{
@@ -90,4 +95,40 @@ body{
 
 .tit-main{
   color: #505050;
+}
+
+::-webkit-scrollbar-track {
+      background-color: #b46868;
+}
+
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-button {
+      background-color: #7c2929;
+}
+
+::-webkit-scrollbar-corner {
+      background-color: black;
+}
+
+.t-header{
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.t-left{
+  border-bottom-left-radius: 3px;
+}
+
+.t-right{
+  border-bottom-right-radius: 3px;
+}
+
+.t-left:hover, .t-right:hover{
+  transition: ease-out .2s;
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
 }

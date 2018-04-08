@@ -1,0 +1,15 @@
+{
+    "name": "candy-ucab/kernel",
+    "description": "Framework básico para CandyUcab",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nelson",
+            "email": "nelsonmggomes@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0",
+        "symfony/symfony": "^4.0"
+    }
+}
