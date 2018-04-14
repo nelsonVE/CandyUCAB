@@ -11,5 +11,10 @@
     "require": {
         "twig/twig": "^2.0",
         "symfony/symfony": "^4.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "ConnectionManager\\": "../kernel/Connection"
+      }
     }
 }

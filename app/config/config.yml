@@ -1,9 +1,9 @@
 database:
   host: localhost
   nombre: test
-  usuario: root
-  pass:
-  puerto: 5432
+  usuario: postgres
+  pass: 1234
+  puerto: 5434
   driver: postgresql
 
 site:

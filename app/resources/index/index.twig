@@ -4,27 +4,26 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12 bg-content-main">
-			<div class="text-center mt-5">
+			<div class="text-center my-5">
         <h2 class="text-white">¿Qué esperas para registrarte?</h2><hr>
         <div class="row">
-          <div class="col-md-2 col-sm-0"></div>
-          <div class="col-md-8 col-sm-0">
-            <form>
-              <div class="form-group row">
-                <input type="text" class="form-control col-center" id="nombre" placeholder="Nombre">
-              </div>
-              <div class="form-group row">
-                <input type="text" class="form-control col-center" id="apellido" placeholder="Apellido">
-              </div>
-              <div class="form-group row">
-                <input type="email" class="form-control col-center" id="email" placeholder="Email">
-              </div>
-              <button type="button" class="btn btn-afil mb-5">
-                ¡Afíliate a nosotros!
-              </button>
-            </form>
-          </div>
-          <div class="col-md-2 col-sm-0"></div>
+          <div class="col-md-4 col-sm-0"></div>
+          <div class="col-md-4 col-sm-0">
+						<div class="row">
+	            <div class="col-md-6 col-sm-12 bg-content t-body p-3  waves-effect" onclick="window.location='index.php?controller=usuario&action=regnatural';">
+								<img src="./app/view/images/natural.svg" width="128" height="128"> <hr>
+								<h4>Personal</h4>
+								<p class="text-center">Ideal para clientes naturales.</p>
+	            </div>
+							<div class="col-md-6 col-sm-12 bg-content t-body p-3  waves-effect" onclick="window.location='index.php?controller=usuario&action=regjuridico';">
+								<img src="./app/view/images/juridico.svg" width="128" height="128"> <hr>
+								<h4>Jurídico</h4>
+								<p class="text-center">Ideal para clientes los cuales
+									necesitan registrar la cuenta a nombre de su empresa.</p>
+							</div>
+	          </div>
+					</div>
+          <div class="col-md-4 col-sm-0"></div>
         </div>
 			</div>
 		</div>

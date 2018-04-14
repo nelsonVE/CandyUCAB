@@ -119,6 +119,10 @@ body{
   border-bottom: 1px solid #d7d7d7;
 }
 
+.t-body{
+  cursor:pointer;
+}
+
 .t-left{
   border-bottom-left-radius: 3px;
 }
@@ -127,7 +131,8 @@ body{
   border-bottom-right-radius: 3px;
 }
 
-.t-left:hover, .t-right:hover{
+.t-left:hover, .t-right:hover,
+.t-body:hover{
   transition: ease-out .2s;
   background-color: rgb(235, 235, 235);
   cursor: pointer;
