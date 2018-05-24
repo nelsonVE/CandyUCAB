@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body{
+  font-family: 'Quicksand', sans-serif;
+	background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 58px;
+}
+
+.footer{
+  background-color: rgb(35, 35, 35);
+}
+
+.navbar-candy {
+    background-color: #96204b;
+}
+
+.navbar-candy,
+.navbar-candy .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+.navbar-candy .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+
+.navbar-brand{
+	color: white;
+}
+
+.navbar-brand:hover{
+	color: white;
+  cursor: default;
+}
+
+.navbar-candy .nav-item.active .nav-link,
+.navbar-candy .nav-item:hover .nav-link {
+	transition: ease-out .1s;
+    color: #ffffff;
+    border-bottom: 3px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-trans{
+  background-color: rgba(150, 32, 75, 0.8);
+	min-height: 400px;
+}
+
+.bg-content{
+	background-color: #fff;
+	min-height: 400px;
+}
+
+.bg-content-main{
+	background-color: rgba(0, 0, 0, 0.6);
+	min-height: 400px;
+}
+
+.reg-button{
+	border-radius: 4px;
+	border: 1px solid #da5183;
+	color: #da5183;
+}
+
+.reg-button:hover{
+	background-color: #da5183;
+	border-radius: 4px;
+	transition: ease-out .1s;
+	color: white;
+}
+
+.btn-afil{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 22px;
+  color: white;
+  background-color: #de7199;
+  border-bottom: 3px solid #a35270;
+  padding: .7em 15%;
+}
+
+.btn-afil:hover{
+  color: white;
+  background-color: #a35270;
+}
+
+.form-control{
+  max-width: 570px;
+}
+
+.col-center{
+    margin: 0 auto;
+    float: none;
+}
+
+.tit-main{
+  color: #505050;
+}
+
+::-webkit-scrollbar-track {
+      background-color: #b46868;
+}
+
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-button {
+      background-color: #7c2929;
+}
+
+::-webkit-scrollbar-corner {
+      background-color: black;
+}
+
+.t-header{
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.t-body{
+  cursor:pointer;
+}
+
+.t-left{
+  border-bottom-left-radius: 3px;
+}
+
+.t-right{
+  border-bottom-right-radius: 3px;
+}
+
+.t-left:hover, .t-right:hover,
+.t-body:hover{
+  transition: ease-out .2s;
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
