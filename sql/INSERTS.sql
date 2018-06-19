@@ -1,4 +1,4 @@
-INSERT INTO lugar(id_lug,nombre_lug,tipo_lug,fk_id_lug) VALUES
+INSERT INTO lugar(id_lug,nombre_lug,tipo_lug,fk_lug) VALUES
 (1   ,'Amazonas','Estado',null),
 (2   ,'Anzoategui','Estado',null),
 (3   ,'Apure','Estado',null),
