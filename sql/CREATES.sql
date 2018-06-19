@@ -2,7 +2,7 @@ CREATE DATABASE candyucab;
 \c candyucab;
 CREATE TABLE lugar (
   id_lug SERIAL,
-  nombre_lug VARCHAR(32) NOT NULL,
+  nombre_lug VARCHAR(64) NOT NULL,
   tipo_lug VARCHAR(32) NOT NULL,
   fk_lug INT,
   CONSTRAINT pk_lugar PRIMARY KEY(id_lug)
