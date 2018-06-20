@@ -23,6 +23,7 @@ CREATE TABLE cliente (
   capital_jur BIGINT,
   pag_web_jur VARCHAR(64),
   fk_lug INT,
+  fk_lug_jur INT,
   CONSTRAINT pk_cliente PRIMARY KEY(id_cli)
 );
 
