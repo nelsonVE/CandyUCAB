@@ -166,6 +166,7 @@ CREATE TABLE usuario (
   usuario VARCHAR(16) UNIQUE NOT NULL,
   contrasenha VARCHAR(32) NOT NULL,
   fk_rol INT,
+  fk_cli INT,
   CONSTRAINT pk_usuario PRIMARY KEY(id_usu)
 );
 
