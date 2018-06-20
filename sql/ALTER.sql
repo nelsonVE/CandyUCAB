@@ -1,6 +1,7 @@
 
  ALTER TABLE lugar ADD CONSTRAINT fk_id_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE cliente ADD CONSTRAINT fk_cli_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ ALTER TABLE usuario ADD CONSTRAINT fk_usu_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
  ALTER TABLE cliente ADD CONSTRAINT fk_cli_jur_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE lug_jur ADD CONSTRAINT fk_lug_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE lug_jur ADD CONSTRAINT fk_jur_lugar FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
