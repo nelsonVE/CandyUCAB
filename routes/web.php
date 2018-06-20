@@ -21,5 +21,8 @@ Route::get('/tienda', function () {
 
 Route::post('registro/crear', 'UserController@crear');
 Route::get('registro/juridico', 'UserController@juridico');
-
+Route::get('registro/natural', 'UserController@natural');
 Route::resource('registro', 'UserController');
+
+Route::get('estado/{estado}/municipios', 'EstadoController@getMunicipios');
+Route::get('municipio/{municipio}/parroquias', 'EstadoController@getParroquias');
