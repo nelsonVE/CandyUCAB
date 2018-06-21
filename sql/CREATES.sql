@@ -69,7 +69,6 @@ CREATE TABLE caramelo (
   sabor_car VARCHAR(30) NOT NULL,
   precio_car INT NOT NULL,
   fk_tip INT NOT NULL,
-  url_img VARCHAR(50) NOT NULL,
   CONSTRAINT pk_caramelo PRIMARY KEY(id_car)
 );
 

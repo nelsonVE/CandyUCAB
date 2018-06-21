@@ -14,7 +14,7 @@ INSERT INTO tipo_car (desc_tip) VALUES
 ('ácidos'),
 ('con colorantes');
 
-INSERT INTO caramelo (nombre_car, forma_car, tamanho_car, desc_car, sabor_car, fk_tip, url_img,precio_car)
+INSERT INTO caramelo (nombre_car, forma_car, tamanho_car, desc_car, sabor_car, fk_tip, url_car,precio_car)
 VALUES
   ('Chupetas Rimbombin', 'Chupeta', 'Normal', 'El famoso caramelo con palo ideado por Enric Bernat en 1958 sigue de actualidad en nuestros días.', 'Tradicional', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%normal%'), '/img/dulces/rimbombin.jpg',500),
   ('Chupetas Rimbombin', 'Chupeta', 'Normal', 'El famoso caramelo con palo ideado por Enric Bernat en 1958 sigue de actualidad en nuestros días.', 'Tradicional', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chicle%'), '/img/dulces/rimbombin.jpg',550),
@@ -53,8 +53,14 @@ VALUES
   ('Choco Candy', 'Caramelo', 'Pequeño', 'Caramelo de chocolate con distintos sabores ¡Líderes en el mercado!', 'Capuccino', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/chococandy.jpg',320),
   ('Choco Candy', 'Caramelo', 'Pequeño', 'Caramelo de chocolate con distintos sabores ¡Líderes en el mercado!', 'Fresa con Nata', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/chococandy.jpg',310),
   ('Choco Candy', 'Caramelo', 'Pequeño', 'Caramelo de chocolate con distintos sabores ¡Líderes en el mercado!', 'Nata y Mousse de Limon', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/chococandy.jpg',310),
-  ('Choco Candy', 'Caramelo', 'Pequeño', 'Caramelo de chocolate con distintos sabores ¡Líderes en el mercado!', 'Menta', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/chococandy.jpg',320);
-
+  ('Choco Candy', 'Caramelo', 'Pequeño', 'Caramelo de chocolate con distintos sabores ¡Líderes en el mercado!', 'Menta', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/chococandy.jpg',320),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Piñones', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%normal%'), '/img/dulces/blue.jpg',250),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Crema', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%macizo%'), '/img/dulces/blue.jpg',250),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Café con Leche', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%normal%'), '/img/dulces/blue.jpg',350),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Ligero', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%sin%'), '/img/dulces/blue.jpg',300),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Piñones', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/blue.jpg',253),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo especial contra la lucha del Azheimer', 'Olvidador', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%colorantes%'), '/img/dulces/blue.jpg',275),
+  ('Blue', 'Caramelo', 'Pequeño', 'Caramelo especial contra la lucha del Azheimer', 'relleno de arquipe', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%macizo%'), '/img/dulces/blue.jpg',255);
 INSERT INTO tienda (nombre_tie, tipo_tie, fk_lug) VALUES
   ('CandyUcab Caracas',1,205),
   ('CandyUcab El Cafetal', 0, 990),
