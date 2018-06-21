@@ -107,8 +107,6 @@ INSERT INTO tienda (nombre_tie, tipo_tie, fk_id_lug) VALUES
   ('CandyUcab Vargas', 0, 1360);
 
 INSERT INTO 'personal' (cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, fecha_ingreso_per, salario_per, fk_id_tie) VALUES
-  ('28140264','Zachary','Hammett','Day','Riggs','2017-04-16',3193262, 0),
-  ('20154787','Paula','Kimberley','Powell','Erickson','2017-10-28',3584575,0),
   ('25106400','Madonna','Ashton','Holder','Leach','2018-09-28',3501771,1),
   ('29195325','Deanna','Malik','Galloway','Larson','2018-01-03',3797669,1),
   ('27185533','Kato','Galvin','Stephens','Lowery','2018-04-26',3436882,2),
@@ -186,4 +184,6 @@ INSERT INTO 'personal' (cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, 
   ('21851036','Chava','Quincy','Bass','Burks','2019-05-21',3145198,38),
   ('26127155','Macaulay','Willow','Gregory','Simmons','2018-09-12',3251434,38),
   ('22488217','Kasimir','Cullen','Beck','Glenn','2019-01-27',3915109,39),
-  ('29251340','Leandra','Aphrodite','Brewer','Price','2019-03-05',2966765,39);
+  ('29251340','Leandra','Aphrodite','Brewer','Price','2019-03-05',2966765,39),
+  ('28140264','Zachary','Hammett','Day','Riggs','2017-04-16',3193262, 40),
+  ('20154787','Paula','Kimberley','Powell','Erickson','2017-10-28',3584575,40);
