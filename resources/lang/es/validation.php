@@ -13,6 +13,10 @@ return [
     |
     */
 
+
+    // Validaciones personalizadas
+    'verificar_user_login'  => 'El usuario no fue encontrado en el sistema',
+    //
     'accepted'             => 'El campo :attribute debe ser aceptado.',
     'active_url'           => 'El campo :attribute no es una URL válida.',
     'after'                => 'El campo :attribute debe ser una fecha posterior a :date.',

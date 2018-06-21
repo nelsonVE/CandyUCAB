@@ -13,23 +13,62 @@ class UserController extends Controller
 
     }
 
-    public function juridico(){
+    public function login(Request $request){
+      if($request->session()->has('userid'))
+        return redirect('/panel');
+
+      return \View::make('login.inicio');
+    }
+
+    public function juridico(Request $request){
+      if($request->session()->has('userid'))
+        return redirect('/panel');
+
       $lugar = \DB::table('lugar')->get();
       return \View::make('registro.juridico', ['lugar' => $lugar]);
     }
 
-    public function natural(){
+    public function natural(Request $request){
+      if($request->session()->has('userid'))
+        return redirect('/panel');
+
       $lugar = \DB::table('lugar')->get();
       return \View::make('registro.natural', ['lugar' => $lugar]);
     }
 
+    public function autentificar(Request $request){
+      $this->validate($request, [
+        'usuario' => 'required|between:7,16|verificar_user_login',
+        'password' => 'required|between:6,18'
+      ]);
+
+      $usuario = $request->usuario;
+      $contrasenha = $request->password;
+
+      $password = \DB::table('usuario')->select('contrasenha')->where('usuario', $usuario)->first()->contrasenha;
+
+      echo 'Password en la DB: '.$password.' vs. '.$contrasenha;
+
+      $error = \Illuminate\Validation\ValidationException::withMessages([
+         'password' => ['La combinación usuario/contraseña es incorrecta']
+      ]);
+      if($password == $contrasenha){
+        $userid = \DB::table('usuario')->select('id_usu')->where('usuario', $usuario)->first()->id_usu;
+        $request->session()->put('userid', $userid);
+        $request->session()->put('username', $usuario);
+        return redirect('/panel');
+      } else {
+        throw $error;
+      }
+    }
+
     public function crear(Request $request){
-    //  dd($request->all());
 
       if($request->_tipo == 1){
         $this->validate($request, [
-          //'rif' => 'required|digits_between:7,10',
-          'password' => 'required|digits_between:6,18|confirmed',
+          'rif' => 'required|between:7,10',
+          'usuario' => 'required|between:7,16',
+          'password' => 'required|between:6,18|confirmed',
           'password_confirmation' => 'required',
           'ci_percon' => 'required|numeric',
           'capital' => 'required|numeric',
@@ -52,9 +91,10 @@ class UserController extends Controller
         $telefono_per = $request->tel_percon;
         $verificar = \DB::table('cliente')->select('rif_cli')->where('rif_cli', $rif)->count();
         $username = \DB::table('usuario')->select('id_usu')->where('usuario', $usuario)->count();
-      if(($verificar+$username) > 0){
-        return 'Usuario ya existe';
-      }
+
+        if(($verificar+$username) > 0){
+          return 'Usuario ya existe';
+        }
 
         \DB::table('cliente')->insert([
           [
@@ -105,13 +145,15 @@ class UserController extends Controller
         ]);
 
       } else {
+
         $this->validate($request, [
-          //'rif' => 'required|digits_between:7,10',
+          'rif' => 'required|between:7,10',
+          'usuario' => 'required|between:7,16',
           'primer_nombre' => 'required|alpha',
           'segundo_nombre' => 'required|alpha',
           'primer_apellido' => 'required|alpha',
           'segundo_apellido' => 'alpha',
-          'password' => 'required|digits_between:6,18|confirmed',
+          'password' => 'required|between:6,18|confirmed',
           'password_confirmation' => 'required',
           'cedula' => 'required|numeric',
           'telefono' => 'required|numeric'
@@ -166,6 +208,9 @@ class UserController extends Controller
           ]
         ]);
       }
+      $userid = \DB::table('usuario')->select('id_usu')->where('usuario', $usuario)->first()->id_usu;
+      $request->session()->put('userid', $userid);
+      $request->session()->put('username', $usuario);
+      return redirect('/panel');
     }
-
 }

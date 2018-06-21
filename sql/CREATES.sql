@@ -65,6 +65,7 @@ CREATE TABLE caramelo (
   forma_car VARCHAR(32) NOT NULL,
   tamanho_car VARCHAR(12) NOT NULL,
   desc_car VARCHAR(128) NOT NULL,
+  url_car VARCHAR(256) NOT NULL,
   sabor_car VARCHAR(20) NOT NULL,
   fk_tip INT NOT NULL,
   CONSTRAINT pk_caramelo PRIMARY KEY(id_car)
@@ -290,7 +291,7 @@ CREATE TABLE ped_est (
   fk_est INT REFERENCES estatus(id_est),
   fk_ped INT REFERENCES pedido(id_ped),
   CONSTRAINT pk_pedest PRIMARY KEY(id_ped,fk_est,fk_ped)
-); 
+);
 
 CREATE TABLE car_ing(
 	id_cig SERIAL,

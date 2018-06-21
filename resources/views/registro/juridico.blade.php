@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo')
+CandyUcab - Registro jurídico
+@endsection
+
 @section('contenido')
 <?php //dd($lugar); ?>
 <div class="container-fluid p-5" style="background-color: rgba(0,0,0,0.5);">
@@ -8,8 +12,8 @@
       <div class="col-md-3 col-sm-12">
         <h3></h3>
       </div>
+      @if(Auth::guest())
       <div class="col-md-6 col-sm-12 bg-content p-5">
-        <!-- Material form register -->
         <form action="{{ url('registro/crear') }}" role="form" method="post">
             @if (count($errors) > 0)
                <div class = "alert alert-danger">
@@ -178,9 +182,8 @@
                 <button class="btn btn-pink" type="submit">Registrarme</button>
             </div>
         </form>
-        <!-- Material form register -->
-
       </div>
+      @endif
       <div class="col-md-3 col-sm-12">
         <h3></h3>
       </div>

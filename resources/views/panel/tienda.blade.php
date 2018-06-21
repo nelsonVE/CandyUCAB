@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo')
+CandyUcab - Tienda
+@endsection
+
 @section('contenido')
 <div class="container-fluid p-5" style="background-color: rgba(0,0,0,0.5);">
   <div class="container">

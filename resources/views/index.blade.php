@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo')
+CandyUcab - ¡Bienvenido!
+@endsection
+
 @section('contenido')
 <div class="container-fluid">
 	<div class="row">

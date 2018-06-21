@@ -34,6 +34,9 @@
               <a class="nav-link" href="/productos">Productos</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/tienda">Tienda</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/contacto">Contáctanos</a>
             </li>
             <li class="nav-item">
@@ -41,11 +44,13 @@
             </li>
           </ul>
           <ul class="navbar-nav">
-            <li class="nav-item mr-3">
-              <a class="nav-link" href="/login">Login</span></a>
-            </li>
-            <li class="">
-              <a class="nav-link btn-pink" href="#">Regístrate</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $usuario }}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/panel/perfil">Perfil</a>
+                    <a class="dropdown-item" href="/panel/configuracion">Configuración</a>
+                    <a class="dropdown-item" href="/panel/salir">Salir</a>
+                </div>
             </li>
           </ul>
         </div>
@@ -103,94 +108,4 @@
 	</footer>
 	<!--/.Footer-->
   </body>
-  <script>
-  $(function(){
-      var url = '{{ url('estado')}}/' + $(this).val() + '/municipios/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_municipio]');
-        select.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-  });
-  $(function(){
-    $('select[name=sel_estado]').on("change", function(){
-      var url = '{{ url('estado')}}/' + $(this).val() + '/municipios/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_municipio]');
-        var clean = $('form select[name=sel_parroquia]');
-        select.empty();
-        clean.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-    });
-  });
-  $(function(){
-    $('select[name=sel_municipio]').on("change", function(){
-      var url = '{{ url('municipio')}}/' + $(this).val() + '/parroquias/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_parroquia]');
-        select.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.id_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-    });
-  });
-  $(function(){
-    $('select[name=sel_parroquia]').on("change", function(){
-
-    });
-  });
-  $(function(){
-      var url = '{{ url('estado')}}/' + $(this).val() + '/municipios/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_municipio]');
-        select.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-  });
-  $(function(){
-    $('select[name=sel_estado_prin]').on("change", function(){
-      var url = '{{ url('estado')}}/' + $(this).val() + '/municipios/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_municipio_prin]');
-        var clean = $('form select[name=sel_parroquia_prin]');
-        select.empty();
-        clean.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-    });
-  });
-  $(function(){
-    $('select[name=sel_municipio_prin]').on("change", function(){
-      var url = '{{ url('municipio')}}/' + $(this).val() + '/parroquias/';
-      console.log(url);
-      $.get(url, function(data) {
-        var select = $('form select[name=sel_parroquia_prin]');
-        select.empty();
-        $.each(data, function(key, value){
-          select.append('<option value="'+value.id_lug+'">'+value.nombre_lug+'</option>');
-        });
-      });
-    });
-  });
-  $(function(){
-    $('select[name=sel_parroquia_prin]').on("change", function(){
-
-    });
-  });
-  </script>
 </html>

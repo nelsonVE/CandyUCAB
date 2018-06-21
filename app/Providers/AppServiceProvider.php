@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+      \Validator::extend('verificar_user_login', function ($attribute, $value, $parameters, $validator) {
+            $verificar = \DB::table('usuario')->select('contrasenha')->where('usuario', $value)->count();
+            return ($verificar > 0);
+        });
     }
 
     /**
