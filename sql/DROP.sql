@@ -1,3 +1,4 @@
+\c candyucab;
 DROP TABLE car_ing;
 DROP TABLE ped_est;
 DROP TABLE estatus;
