@@ -10,19 +10,19 @@ CREATE TABLE lugar (
 
 CREATE TABLE cliente (
   id_cli SERIAL,
-  rif_cli VARCHAR(10) NOT NULL,
-  correo_cli VARCHAR(32) NOT NULL,
+  rif_cli VARCHAR(10) UNIQUE NOT NULL,
+  correo_cli VARCHAR(50) NOT NULL,
   tipo INT NOT NULL,
-  cedula_nat VARCHAR(10) UNIQUE,
+  cedula_nat VARCHAR(12) UNIQUE,
   nombre_1_nat VARCHAR(16),
   nombre_2_nat VARCHAR(16),
   apellido_1_nat VARCHAR(16),
   apellido_2_nat VARCHAR(16),
-  den_com_jur VARCHAR(64),
-  raz_soc_jur VARCHAR(32),
-  capital_jur BIGINT,
+  den_com_jur VARCHAR(100),
+  raz_soc_jur VARCHAR(100),
+  capital_jur DECIMAL(11,2),
   pag_web_jur VARCHAR(64),
-  fk_lug INT,
+  fk_lug INT NOT NULL,
   fk_lug_jur INT,
   CONSTRAINT pk_cliente PRIMARY KEY(id_cli)
 );
@@ -82,7 +82,7 @@ CREATE TABLE tienda (
   id_tie SERIAL,
   nombre_tie VARCHAR(64) NOT NULL,
   tipo_tie INT NOT NULL,
-  fk_lug INT,
+  fk_lug INT NOT NULL,
   CONSTRAINT pk_tienda PRIMARY KEY(id_tie)
 );
 
@@ -119,7 +119,7 @@ CREATE TABLE inv_car (
 CREATE TABLE departamento (
   id_dep SERIAL,
   nombre_dep VARCHAR(64) NOT NULL,
-  fk_tie INT ,
+  fk_tie INT NOT NULL,
   CONSTRAINT pk_departamento PRIMARY KEY(id_dep)
 );
 
@@ -132,9 +132,9 @@ CREATE TABLE personal (
   apellido_2 VARCHAR(16),
   fecha_ingreso_per DATE NOT NULL,
   salario_per BIGINT NOT NULL,
-  fk_tie INT ,
-  fk_dep INT ,
-  fk_lugar INT,
+  fk_tie INT NOT NULL,
+  fk_dep INT NOT NULL,
+  fk_lugar INT NOT NULL,
   CONSTRAINT pk_personal PRIMARY KEY(id_per)
 );
 
