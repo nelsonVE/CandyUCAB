@@ -12,7 +12,8 @@ class ProductosController extends Controller
       if($request->session()->has('userid')){
         return \View::make('panel.productos', [
           'productos' => $productos,
-          'usuario'   => $request->session()->get('username')
+          'usuario'   => $request->session()->get('username'),
+          'rol' => $request->session()->get('rol')
         ]);
       } else {
         return \View::make('home.productos', [

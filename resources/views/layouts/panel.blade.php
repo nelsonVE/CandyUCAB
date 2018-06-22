@@ -49,7 +49,7 @@
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/panel/perfil">Perfil</a>
                     <a class="dropdown-item" href="/panel/configuracion">Configuración</a>
-                    @if($rol > 0)
+                    @if($rol > 1)
                     <a class="dropdown-item" href="/admin">Administración</a>
                     @endif
                     <a class="dropdown-item" href="/panel/salir">Salir</a>

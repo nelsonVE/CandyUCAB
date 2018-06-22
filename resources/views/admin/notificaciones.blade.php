@@ -14,6 +14,6 @@ CandyUcab - Panel administrativo
   <br><br>
   <h3 class="text-center">Servicio técnico: reportes@candyucab.com</h3>
   <br><br>
-  <h4 class="text-center">¡Que tengas un día productivo!</h4>
+  <h4 class="text-center">¡Que tengas un día productivo! {{ $rol }}</h4>
 </div>
 @endsection

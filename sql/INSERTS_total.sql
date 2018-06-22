@@ -1,3 +1,83 @@
+INSERT INTO rol (tipo) VALUES
+('usuario'),
+('empleado'),
+('jefe de pasillo'),
+('gerente'),
+('encargado de compras'),
+('supervisor'),
+('encargado'),
+('jefe'),
+('administrador'),
+('desarrollador');
+
+INSERT INTO permiso (desc_per) VALUES
+('Usuario común en el sistema'),
+('Funcionalidades básicas de un empleado'),
+('Administración de inventario'),
+('Generación de ofertas'),
+('Aprobar órdenes de compra'),
+('Administrar empleados de una tienda'),
+('Administrar gerentes y empleados de una tienda'),
+('Administrar el personal de todas las tiendas'),
+('Acceso a la información de la web'),
+('Acceso a información de la BD');
+
+INSERT INTO rol_per (fk_per, fk_rol) VALUES
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%usuario%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%empleado%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%empleado%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
+(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
+(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+(6,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(2,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(3,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(4,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(5,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(6,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+(7,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
+(2,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
+(3,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
+(5,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
+(8,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+(8,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+(9,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
+
+(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(8,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(9,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
+(10,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%'));
+
 INSERT INTO lugar(id_lug,nombre_lug,tipo_lug,fk_lug) VALUES
 (1   ,'Amazonas','Estado',null),
 (2   ,'Anzoategui','Estado',null),
@@ -3854,3 +3934,105 @@ INSERT INTO zona (letra_zon, fk_pas) VALUES
 ('D', 23),
 ('D', 24),
 ('D', 25);
+
+
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,1);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,2);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,3);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,4);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,5);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,6);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,7);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,8);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,9);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,10);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,11);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,12);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,13);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,14);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,15);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,16);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,17);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,18);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,19);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,20);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,21);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,22);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,23);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,24);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,25);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,26);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,27);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,28);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,29);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,30);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,31);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,32);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,33);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,34);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,35);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,36);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,37);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,38);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,39);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,40);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,41);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,42);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,43);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,44);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,45);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,46);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,47);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,48);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,49);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,50);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,51);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,52);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,53);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,54);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,55);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,56);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,57);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,58);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,59);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,60);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,61);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,62);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,63);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,64);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,65);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,66);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,67);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,68);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,69);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,70);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,71);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,72);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,73);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,74);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,75);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,76);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,77);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,78);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,79);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,80);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,81);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,82);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,83);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,84);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,85);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,86);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,87);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,88);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,89);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,90);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,91);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,92);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,93);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,94);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,95);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,96);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,97);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,98);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,99);
+INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,100);

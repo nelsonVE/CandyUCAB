@@ -40,3 +40,6 @@ Route::get('/productos', 'ProductosController@getIndex');
 Route::get('/importar/excel', 'ExcelController@importarExcel');
 
 Route::get('/admin', 'AdminController@getIndex');
+Route::get('/admin/notificaciones', 'AdminController@notificaciones');
+Route::get('/admin/hacerinv', 'AdminController@makeInventario');
+Route::get('/admin/reponer/{tienda}', 'AdminController@reponerInventario');

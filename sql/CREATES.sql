@@ -100,20 +100,13 @@ CREATE TABLE pasillo (
   CONSTRAINT pk_pasillo PRIMARY KEY(id_pas)
 );
 
-CREATE TABLE inventario (
-  id_inv SERIAL,
-  fecha_inv DATE NOT NULL,
-  fk_tie INT NOT NULL,
-  CONSTRAINT pk_inventario PRIMARY KEY(id_inv,fk_tie)
-);
-
-CREATE TABLE inv_car (
-  id_icr SERIAL,
-  cantidad_inv BIGINT NOT NULL,
-  fk_inv INT NOT NULL,
+CREATE TABLE zon_car (
+  id_zca SERIAL,
+  cantidad_zca BIGINT NOT NULL,
+  fecha_zca TIMESTAMP NOT NULL,
+  fk_zon INT NOT NULL,
   fk_car INT NOT NULL,
-  fk_tie INT NOT NULL,
-  CONSTRAINT pk_invcar PRIMARY KEY(id_icr,fk_inv,fk_car,fk_tie)
+  CONSTRAINT pk_zoncar PRIMARY KEY(id_zca,fk_zon,fk_car)
 );
 
 CREATE TABLE departamento (

@@ -31,13 +31,13 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li>
+                <li {{{ (Request::is('admin/notificaciones') ? 'class=active' : '') }}}>
                     <a href="{{ url('/admin/notificaciones') }}">
                         <i class="fas fa-exclamation-circle"></i>
                         Notificaciones
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
                         Tienda
@@ -48,6 +48,14 @@
                         </li>
                     </ul>
                 </li>
+                @if($rol > 4)
+                <li>
+                    <a href="{{ url('/admin/hacerinv') }}">
+                        <i class="fas fa-box-open"></i>
+                        Revisar inventario
+                    </a>
+                </li>
+                @endif
                 <li>
                     <a href="{{ url('/panel/salir') }}">
                         <i class="fas fa-paper-plane"></i>
