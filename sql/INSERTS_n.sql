@@ -481,7 +481,7 @@ INSERT INTO personal(cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, fec
 ('aprovechalanota@hotmail.com','Laboratorios Aprovecha',8234311.65,'www.laboratoriodelplacer.com','J163590367',1,'Laboratorios Aprovecha Gonzalo y lopez SLR',1352,1355),
 ('augue.ut@nislMaecenas.com','Camara Provocativa aprieta',6195223.08,'camasbuenas.com','J168491087',1,'Camara Provocativa aprieta CA',427,427);
 
-INSERT INTO "cliente" (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_nat,apellido_1_nat,apellido_2_nat,fk_lug) VALUES 
+INSERT INTO cliente (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_nat,apellido_1_nat,apellido_2_nat,fk_lug) VALUES 
 ('J196338360','cursus.diam@utdolordapibus.co.uk',0,25083214,'Holmes','Sawyer','Pitts','Simmons',740),
 ('J175702538','pretium.neque.Morbi@fringillapurus.ca',0,28444108,'Britanni','Valentine','Frazier','Pope',971),
 ('J253723746','dictum.eu@acfeugiat.net',0,5020526,'Zephania','Paula','Haley','Middleton',1366),
@@ -570,14 +570,14 @@ INSERT INTO rol(tipo) VALUES
 ('empleado'),
 ('jefe de pasillo'),
 ('gerente'),
-('encargado de compras')
+('encargado de compras'),
 ('supervisor'),
 ('encargado'),
 ('jefe'),
 ('administrador'),
 ('desarrollador');
 
- INSERT INTO cliente (usuario,contrasenha,fk_per,fk_rol) VALUES 
+ INSERT INTO usuario (usuario,contrasenha,fk_per,fk_rol) VALUES 
  ('nelson.goncalves.15','personal',1,6),
  ('Yoshio.Ballard.15','personal',2,2),
  ('Callie.Avery.15','personal',3,6),
@@ -661,7 +661,7 @@ INSERT INTO rol(tipo) VALUES
  ('Ann.Washington.15','personal',81,6),
  ('Baxter.Jordan.15','personal',82,2);
 
-INSERT INTO cliente (usuario,contrasenha,fk_cli,fk_rol) VALUES 
+INSERT INTO usuario (usuario,contrasenha,fk_cli,fk_rol) VALUES 
 ('yonder.gomez.16','cliente',1,1),
 ('Faith.Green.16','cliente',2,1),
 ('Kyra.Garrett.16','cliente',3,1),

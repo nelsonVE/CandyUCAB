@@ -10,8 +10,8 @@
  ALTER TABLE per_con ADD CONSTRAINT fk_cli_persona FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
  ALTER TABLE caramelo ADD CONSTRAINT fk_tip_caramelo FOREIGN KEY(fk_tip) REFERENCES tipo_car(id_tip);
 ALTER TABLE tienda ADD CONSTRAINT fk_lug_tienda FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
-ALTER TABLE zona ADD CONSTRAINT fk_tie_zona FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
-ALTER TABLE pasillo ADD CONSTRAINT fk_zon_pasillo FOREIGN KEY(fk_zon) REFERENCES zona(id_zon);
+ALTER TABLE zona ADD CONSTRAINT fk_pas_zona FOREIGN KEY(fk_pas) REFERENCES pasillo(id_pas);
+ALTER TABLE pasillo ADD CONSTRAINT fk_tie_pasillo FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
 ALTER TABLE inventario ADD CONSTRAINT fk_tie_inventario FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
 ALTER TABLE inv_car ADD CONSTRAINT fk_car_inv FOREIGN KEY(fk_car) REFERENCES caramelo(id_car);
 ALTER TABLE inv_car ADD CONSTRAINT fk_inv_car FOREIGN KEY(fk_inv,fk_tie) REFERENCES inventario(id_inv,fk_tie);

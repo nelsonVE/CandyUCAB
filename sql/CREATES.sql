@@ -48,8 +48,7 @@ CREATE TABLE per_con (
   cedula_per VARCHAR(10),
   nombre_per VARCHAR(32) NOT NULL,
   apellido_per VARCHAR(32) NOT NULL,
-  fk_cli INT,
-  fk_ped INT,
+  fk_cli INT NOT NULL,
   CONSTRAINT pk_percon PRIMARY KEY(id_pco)
 );
 
@@ -89,14 +88,15 @@ CREATE TABLE tienda (
 CREATE TABLE zona (
   id_zon SERIAL,
   letra_zon CHAR(1) NOT NULL,
-  fk_tie INT,
+  fk_pas INT,
   CONSTRAINT pk_zona PRIMARY KEY(id_zon)
 );
+
 
 CREATE TABLE pasillo (
   id_pas SERIAL,
   numero_pas SMALLINT NOT NULL,
-  fk_zon INT,
+  fk_tie INT,
   CONSTRAINT pk_pasillo PRIMARY KEY(id_pas)
 );
 
@@ -165,7 +165,7 @@ CREATE TABLE rol (
 
 CREATE TABLE usuario (
   id_usu SERIAL,
-  usuario VARCHAR(16) UNIQUE NOT NULL,
+  usuario VARCHAR(30) UNIQUE NOT NULL,
   contrasenha VARCHAR(32) NOT NULL,
   fk_rol INT,
   fk_cli INT,
