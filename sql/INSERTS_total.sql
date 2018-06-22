@@ -2141,10 +2141,6 @@ INSERT INTO cliente (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_na
 ('J167565410','Nullam.velit@atpedeCras.net',0,7343908,'Quail','Burke','Robinson','Erickson',1100),
 ('J204578369','faucibus.id.libero@Praesenteu.org',0,27352190,'Nathan','Lucy','Powers','Mosley',770),
 ('J290782089','elit.Nulla@ami.net',0,25854393,'Adam','Macaulay','Atkinson','Knapp',367),
-<<<<<<< HEAD
-('J207684998','natoque.penatibus@molestie.com',0,23758249,'Velma','Xavier','Lindsey','Hubbard',1161);
-
-=======
 ('J207684998','natoque.penatibus@molestie.com',0,23758249,'Velma','Xavier','Lindsey','Hubbard',1161); 
 
 INSERT INTO rol(tipo) VALUES
@@ -2205,7 +2201,6 @@ INSERT INTO rol_per (fk_per, fk_rol) VALUES
 (5,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
 (6,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
 (7,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
->>>>>>> 5daa7c4d6df28c03f70723a33942b9595b7b9005
 
 (1,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
 (2,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
