@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-CandyUcab - ¡Bienvenido!
+CandyUcab - Panel administrativo
 @endsection
 
 @section('contenido')

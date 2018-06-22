@@ -53,7 +53,7 @@
     </nav>
     @yield('contenido')
     <script src="{!! asset('js/jquery-3.3.1.slim.min.js') !!}"></script>
-    <script src="{!! asset('mdb/js/jquery-3.3.1.js') !!}"></script>
+    <script src="{!! asset('mdb/js/jquery-3.3.1.min.js') !!}"></script>
     <!-- Bootstrap tooltips -->
     <script src="{!! asset('mdb/js/popper.min.js') !!}"></script>
     <!-- Bootstrap core JavaScript -->

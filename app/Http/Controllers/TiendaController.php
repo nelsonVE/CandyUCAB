@@ -28,10 +28,27 @@ class TiendaController extends Controller
         if(!$request->session()->has('id_tie'))
           return redirect('/panel/tienda');
 
-        $disponibles = \DB::table('inv_car')->select('fk_car')->where([
-          ['fk_tie', $request->session()->get('id_tie')],
-          ['cantidad_inv', '>', '0'],
-        ])->get();
+
+        $pasillos = \DB::table('pasillo')->where('fk_tie', $request->session()->get('id_tie'))->get();
+        foreach($pasillos as $pasillo){
+          $zonas = \DB::table('zona')->where('fk_pas', $pasillo->id_pas)->get();
+          foreach($zonas as $zona){
+            $zoncar = \DB::table('zon_car')->where('fk_zon', $zona->id_zon)->orderby('fecha_zca', 'desc')->first();
+
+            if($zoncar->cantidad_zca > 0){
+              $disponibles[] = [
+                'letra_zon' => $zona->letra_zon,
+                'cantidad' => $zoncar->cantidad_zca,
+                'tienda' => $request->session()->get('id_tie'),
+                'fk_car' => $zoncar->fk_car
+              ];
+            }
+          }
+        }
+
+        if(!isset($disponibles))
+          $disponibles = null;
+
         $productos = \DB::table('caramelo')->get();
         return \View::make('tienda.productos', [
           'usuario' => $request->session()->get('username'),

@@ -1,20 +1,18 @@
-
- ALTER TABLE lugar ADD CONSTRAINT fk_id_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
- ALTER TABLE cliente ADD CONSTRAINT fk_cli_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
- ALTER TABLE usuario ADD CONSTRAINT fk_usr_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
- ALTER TABLE cliente ADD CONSTRAINT fk_cli_jur_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
- ALTER TABLE lug_jur ADD CONSTRAINT fk_lug_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
- ALTER TABLE lug_jur ADD CONSTRAINT fk_jur_lugar FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
- ALTER TABLE punto ADD CONSTRAINT fk_cli_punto FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
- ALTER TABLE punto ADD CONSTRAINT fk_ped_punto FOREIGN KEY(fk_ped) REFERENCES pedido(id_ped);
- ALTER TABLE per_con ADD CONSTRAINT fk_cli_persona FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
- ALTER TABLE caramelo ADD CONSTRAINT fk_tip_caramelo FOREIGN KEY(fk_tip) REFERENCES tipo_car(id_tip);
+ALTER TABLE lugar ADD CONSTRAINT fk_id_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ALTER TABLE cliente ADD CONSTRAINT fk_cli_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ALTER TABLE usuario ADD CONSTRAINT fk_usr_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
+ALTER TABLE cliente ADD CONSTRAINT fk_cli_jur_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ALTER TABLE lug_jur ADD CONSTRAINT fk_lug_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ALTER TABLE lug_jur ADD CONSTRAINT fk_jur_lugar FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
+ALTER TABLE punto ADD CONSTRAINT fk_cli_punto FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
+ALTER TABLE punto ADD CONSTRAINT fk_ped_punto FOREIGN KEY(fk_ped) REFERENCES pedido(id_ped);
+ALTER TABLE per_con ADD CONSTRAINT fk_cli_persona FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
+ALTER TABLE caramelo ADD CONSTRAINT fk_tip_caramelo FOREIGN KEY(fk_tip) REFERENCES tipo_car(id_tip);
 ALTER TABLE tienda ADD CONSTRAINT fk_lug_tienda FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
 ALTER TABLE zona ADD CONSTRAINT fk_pas_zona FOREIGN KEY(fk_pas) REFERENCES pasillo(id_pas);
 ALTER TABLE pasillo ADD CONSTRAINT fk_tie_pasillo FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
-ALTER TABLE inventario ADD CONSTRAINT fk_tie_inventario FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
-ALTER TABLE inv_car ADD CONSTRAINT fk_car_inv FOREIGN KEY(fk_car) REFERENCES caramelo(id_car);
-ALTER TABLE inv_car ADD CONSTRAINT fk_inv_car FOREIGN KEY(fk_inv,fk_tie) REFERENCES inventario(id_inv,fk_tie);
+ALTER TABLE zon_car ADD CONSTRAINT fk_car_zon FOREIGN KEY(fk_car) REFERENCES caramelo(id_car);
+ALTER TABLE zon_car ADD CONSTRAINT fk_zon_car FOREIGN KEY(fk_zon) REFERENCES zona(id_zon);
 ALTER TABLE departamento ADD CONSTRAINT fk_tie_departamento FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
 ALTER TABLE personal ADD CONSTRAINT fk_tie_personal FOREIGN KEY(fk_tie) REFERENCES tienda(id_tie);
 ALTER TABLE personal ADD CONSTRAINT fk_dep_personal FOREIGN KEY(fk_dep) REFERENCES departamento(id_dep);
@@ -49,13 +47,3 @@ ALTER TABLE ped_est ADD CONSTRAINT fk_est_ped FOREIGN KEY(fk_ped) REFERENCES ped
 ALTER TABLE pago ADD CONSTRAINT fk_pago_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
 ALTER TABLE pag_car_ped ADD CONSTRAINT fk_pago_car FOREIGN KEY(fk_ped_car,fk_car,fk_ped) REFERENCES car_ped(id_car,fk_car,fk_ped);
 ALTER TABLE pag_car_ped ADD CONSTRAINT fk_car_pago FOREIGN KEY(fk_pag) REFERENCES pago(id_pag);
-
-
-
-
-
-
-
-
-
-

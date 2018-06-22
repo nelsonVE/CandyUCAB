@@ -38,7 +38,7 @@ class UserController extends Controller
 
     public function autentificar(Request $request){
       $this->validate($request, [
-        'usuario' => 'required|between:7,16|verificar_user_login',
+        'usuario' => 'required|between:7,29|verificar_user_login',
         'password' => 'required|between:6,18'
       ]);
 
@@ -66,7 +66,7 @@ class UserController extends Controller
       if($request->_tipo == 1){
         $this->validate($request, [
           'rif' => 'required|between:7,10',
-          'usuario' => 'required|between:7,16',
+          'usuario' => 'required|between:7,29',
           'password' => 'required|between:6,18|confirmed',
           'password_confirmation' => 'required',
           'ci_percon' => 'required|numeric',
@@ -147,7 +147,7 @@ class UserController extends Controller
 
         $this->validate($request, [
           'rif' => 'required|between:7,10',
-          'usuario' => 'required|between:7,16',
+          'usuario' => 'required|between:7,29',
           'primer_nombre' => 'required|alpha',
           'segundo_nombre' => 'required|alpha',
           'primer_apellido' => 'required|alpha',

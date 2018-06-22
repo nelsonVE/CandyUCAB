@@ -100,20 +100,13 @@ CREATE TABLE pasillo (
   CONSTRAINT pk_pasillo PRIMARY KEY(id_pas)
 );
 
-CREATE TABLE inventario (
-  id_inv SERIAL,
-  fecha_inv DATE NOT NULL,
-  fk_tie INT NOT NULL,
-  CONSTRAINT pk_inventario PRIMARY KEY(id_inv,fk_tie)
-);
-
-CREATE TABLE inv_car (
-  id_icr SERIAL,
-  cantidad_inv BIGINT NOT NULL,
-  fk_inv INT NOT NULL,
+CREATE TABLE zon_car (
+  id_zca SERIAL,
+  cantidad_zca BIGINT NOT NULL,
+  fecha_zca TIMESTAMP NOT NULL,
+  fk_zon INT NOT NULL,
   fk_car INT NOT NULL,
-  fk_tie INT NOT NULL,
-  CONSTRAINT pk_invcar PRIMARY KEY(id_icr,fk_inv,fk_car,fk_tie)
+  CONSTRAINT pk_zoncar PRIMARY KEY(id_zca,fk_zon,fk_car)
 );
 
 CREATE TABLE departamento (
@@ -254,20 +247,20 @@ CREATE TABLE car_ped (
 CREATE TABLE pago (
   id_pag SERIAL,
   efectivo_pag INT,
-  fecha_pag date not null,
-  ult_tres_digitos_cre INT,
-  nro_tarjeta_cre int,
+  ult_tres_digitos_cre VARCHAR(3),
+  nro_tarjeta_cre varchar(20),
   tipo_cre INT,
   fecha_venc_cre varchar(10),
   banco_deb varchar(20),
   tipo_deb int,
-  numero_che int,
-  banco_che int,
-  nro_cuenta_che int,
+  fecha_che DATE,
+  numero_che VARCHAR(20),
+  banco_che VARCHAR(30),
+  nro_cuenta_che VARCHAR(20),
+  tipo int NOT NULL,
   fk_cli INT,
   CONSTRAINT pk_pago PRIMARY KEY(id_pag)
 );
-
 CREATE TABLE pag_car_ped (
   id_ped SERIAL,
   monto_ped BIGINT NOT NULL,

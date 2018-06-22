@@ -9,12 +9,13 @@ class ExcelController extends Controller
 {
 
     public function importarExcel(){
-      $data = Excel::load('public\xls\control.xls', function($reader){})->get();
+      $data = Excel::load('public/xls/control.xls', function($reader){})->get();
       if(!empty($data) && $data->count()){
         //dd($data);
         foreach($data as $dato){
           $entro = explode(" ", $dato->fecha_hora_entrada);
           $salio = explode(" ", $dato->fecha_hora_salida);
+          dd($salio);
           $existe = \DB::table('personal')->select('id_per')->where('cedula_per', $dato->cedula)->first()->id_per;
 
           if(isset($existe)){
