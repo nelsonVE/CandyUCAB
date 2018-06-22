@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/tienda', function () {
-    return view('tienda');
-});
-
 Route::post('registro/crear', 'UserController@crear');
 Route::get('registro/juridico', 'UserController@juridico');
 Route::get('registro/natural', 'UserController@natural');
@@ -34,4 +30,13 @@ Route::get('municipio/{municipio}/parroquias', 'EstadoController@getParroquias')
 Route::get('/panel', 'PanelController@getIndex');
 Route::get('/panel/salir', 'PanelController@logout');
 
+Route::get('/panel/tienda', 'TiendaController@getIndex');
+Route::get('/panel/tienda/candy', 'TiendaController@getShop');
+Route::post('/panel/tienda/sitio', 'TiendaController@setSitio');
+Route::get('/panel/tienda/candy/agregar/{id_car}', 'TiendaController@addCarrito');
+
 Route::get('/productos', 'ProductosController@getIndex');
+
+Route::get('/importar/excel', 'ExcelController@importarExcel');
+
+Route::get('/admin', 'AdminController@getIndex');
