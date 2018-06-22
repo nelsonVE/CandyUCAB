@@ -103,7 +103,11 @@ CREATE TABLE pasillo (
 CREATE TABLE zon_car (
   id_zca SERIAL,
   cantidad_zca BIGINT NOT NULL,
+<<<<<<< HEAD
   fecha_zca TIMESTAMP NOT NULL,
+=======
+  fecha_zca DATE NOT NULL,
+>>>>>>> 79e7e99cf6f3cd469cf3b25e54b85badbac11cda
   fk_zon INT NOT NULL,
   fk_car INT NOT NULL,
   CONSTRAINT pk_zoncar PRIMARY KEY(id_zca,fk_zon,fk_car)
