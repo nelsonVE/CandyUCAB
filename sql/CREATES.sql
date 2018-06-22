@@ -169,6 +169,7 @@ CREATE TABLE usuario (
   contrasenha VARCHAR(32) NOT NULL,
   fk_rol INT,
   fk_cli INT,
+  fk_per INT,
   CONSTRAINT pk_usuario PRIMARY KEY(id_usu)
 );
 

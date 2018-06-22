@@ -1,7 +1,7 @@
 
  ALTER TABLE lugar ADD CONSTRAINT fk_id_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE cliente ADD CONSTRAINT fk_cli_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
- ALTER TABLE usuario ADD CONSTRAINT fk_usu_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
+ ALTER TABLE usuario ADD CONSTRAINT fk_usr_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
  ALTER TABLE cliente ADD CONSTRAINT fk_cli_jur_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE lug_jur ADD CONSTRAINT fk_lug_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
  ALTER TABLE lug_jur ADD CONSTRAINT fk_jur_lugar FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
@@ -23,6 +23,7 @@ ALTER TABLE telefono ADD CONSTRAINT fk_cli_telefono FOREIGN KEY(fk_cli) REFERENC
 ALTER TABLE telefono ADD CONSTRAINT fk_pco_telefono FOREIGN KEY(fk_pco) REFERENCES per_con(id_pco);
 ALTER TABLE telefono ADD CONSTRAINT fk_per_telefono FOREIGN KEY(fk_per) REFERENCES personal(id_per);
 ALTER TABLE usuario ADD CONSTRAINT fk_rol_usuario FOREIGN KEY(fk_rol) REFERENCES rol(id_rol);
+ALTER TABLE usuario ADD CONSTRAINT fk_usr_personal FOREIGN KEY(fk_per) REFERENCES personal(id_per);
 ALTER TABLE rol_per ADD CONSTRAINT fk_rol_per FOREIGN KEY(fk_per) REFERENCES permiso(id_per);
 ALTER TABLE rol_per ADD CONSTRAINT fk_per_rol FOREIGN KEY(fk_rol) REFERENCES rol(id_rol);
 ALTER TABLE control ADD CONSTRAINT fk_control FOREIGN KEY(fk_per) REFERENCES personal(id_per);
