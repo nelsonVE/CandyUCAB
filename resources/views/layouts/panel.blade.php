@@ -5,7 +5,7 @@
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="{!! asset('css/header.css') !!}">
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -28,13 +28,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Inicio</span></a>
+              <a class="nav-link" href="/panel">Inicio</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/productos">Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/tienda">Tienda</a>
+              <a class="nav-link" href="/panel/tienda">Tienda</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contacto">Contáctanos</a>
@@ -49,6 +49,9 @@
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/panel/perfil">Perfil</a>
                     <a class="dropdown-item" href="/panel/configuracion">Configuración</a>
+                    @if($rol > 0)
+                    <a class="dropdown-item" href="/admin">Administración</a>
+                    @endif
                     <a class="dropdown-item" href="/panel/salir">Salir</a>
                 </div>
             </li>
@@ -57,14 +60,14 @@
       </div>
     </nav>
     @yield('contenido')
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{!! asset('js/jquery-3.3.1.slim.min.js') !!}"></script>
+    <script src="{!! asset('mdb/js/jquery-3.3.1.js') !!}"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="{!! asset('mdb/js/popper.min.js') !!}"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{!! asset('mdb/js/bootstrap.min.js') !!}"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+    <script src="{!! asset('mdb/js/mdb.min.js') !!}"></script>
 	<!--Footer-->
 <footer class="page-footer font-small footer pt-4">
 

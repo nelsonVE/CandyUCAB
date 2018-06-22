@@ -47,14 +47,13 @@ class UserController extends Controller
 
       $password = \DB::table('usuario')->select('contrasenha')->where('usuario', $usuario)->first()->contrasenha;
 
-      echo 'Password en la DB: '.$password.' vs. '.$contrasenha;
-
       $error = \Illuminate\Validation\ValidationException::withMessages([
          'password' => ['La combinación usuario/contraseña es incorrecta']
       ]);
       if($password == $contrasenha){
-        $userid = \DB::table('usuario')->select('id_usu')->where('usuario', $usuario)->first()->id_usu;
-        $request->session()->put('userid', $userid);
+        $userinfo = \DB::table('usuario')->select('id_usu', 'fk_rol')->where('usuario', $usuario)->get();
+        $request->session()->put('userid', $userinfo[0]->id_usu);
+        $request->session()->put('rol', $userinfo[0]->fk_rol);
         $request->session()->put('username', $usuario);
         return redirect('/panel');
       } else {

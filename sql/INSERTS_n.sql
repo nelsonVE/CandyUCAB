@@ -1,7 +1,7 @@
 INSERT INTO tipo_car (desc_tip) VALUES
 ('normal'),
 ('macizo'),
-('con chicle'), 
+('con chicle'),
 ('piruleta'),
 ('bombón'),
 ('gelatina'),
@@ -61,6 +61,7 @@ VALUES
   ('Blue', 'Caramelo', 'Pequeño', 'Caramelo Blue artesanal especial', 'Piñones', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%chocolate%'), '/img/dulces/blue.jpg',253),
   ('Blue', 'Caramelo', 'Pequeño', 'Caramelo especial contra la lucha del Azheimer', 'Olvidador', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%colorantes%'), '/img/dulces/blue.jpg',275),
   ('Blue', 'Caramelo', 'Pequeño', 'Caramelo especial contra la lucha del Azheimer', 'relleno de arquipe', (SELECT id_tip FROM tipo_car WHERE desc_tip LIKE '%macizo%'), '/img/dulces/blue.jpg',255);
+
 INSERT INTO tienda (nombre_tie, tipo_tie, fk_lug) VALUES
   ('CandyUcab Caracas',1,205),
   ('CandyUcab El Cafetal', 0, 990),
@@ -105,7 +106,7 @@ INSERT INTO tienda (nombre_tie, tipo_tie, fk_lug) VALUES
   ('CandyUcab Vargas', 0, 1360);
 
 INSERT INTO departamento(nombre_dep,fk_tie) VALUES
-('Departamento de Despacho' ,1), 
+('Departamento de Despacho' ,1),
 ('Departamento de Entrega',1 ),
 ('Departamento de Pedidos Internos' ,1 ),
 ('Departamento de Ventas En Linea',1),
@@ -313,8 +314,8 @@ INSERT INTO departamento(nombre_dep,fk_tie) VALUES
 
 
 INSERT INTO personal(cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, fecha_ingreso_per, salario_per, fk_tie,fk_dep,fk_lugar) VALUES
-  ('25106400','Madonna','Ashton','Holder','Leach','2018-09-28',3501771,1,1,703),
-  ('29195325','Deanna','Malik','Galloway','Larson','2018-01-03',3797669,1,4,699),
+  ('12533896','Madonna','Ashton','Holder','Leach','2018-09-28',3501771,1,1,703),
+  ('13532986','Deanna','Malik','Galloway','Larson','2018-01-03',3797669,1,4,699),
   ('27185533','Kato','Galvin','Stephens','Lowery','2018-04-26',3436882,2,7,992),
   ('24080774','Burton','Althea','Miles','Burks','2018-08-22',2980457,2,8,990),
   ('29675149','Jenna','Guinevere','Hamilton','Montoya','2017-05-18',3534810,3,11,1447),
