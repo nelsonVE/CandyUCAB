@@ -25,8 +25,6 @@ class AdminController extends Controller
         if($request->session()->get('rol') < 1)
           return redirect('/panel');
 
-        //$pasillos = \DB::table('zona')
-
         return \View::make('admin.notificaciones', [
           'usuario' => $request->session()->get('username'),
           'userid' => $request->session()->get('userid'),

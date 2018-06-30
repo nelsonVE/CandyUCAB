@@ -44,6 +44,12 @@
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
+                            <a href="<?php echo e(url('/admin/tienda/crear')); ?>">Crear tienda</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo e(url('/admin/tiendas')); ?>">Lista de tiendas</a>
+                        </li>
+                        <li>
                             <a href="#">Registrar compra</a>
                         </li>
                     </ul>
@@ -73,7 +79,7 @@
 
     <!-- JQuery -->
     <script src="<?php echo asset('js/jquery-3.3.1.slim.min.js'); ?>"></script>
-    <script src="<?php echo asset('mdb/js/jquery-3.3.1.js'); ?>"></script>
+    <script src="<?php echo asset('mdb/js/jquery-3.3.1.min.js'); ?>"></script>
     <!-- Bootstrap tooltips -->
     <script src="<?php echo asset('mdb/js/popper.min.js'); ?>"></script>
     <!-- Bootstrap core JavaScript -->
@@ -94,6 +100,61 @@
       $(document).ready(function () {
           $('#sidebarCollapse').on('click', function () {
               $('#sidebar').toggleClass('active');
+          });
+      });
+      $(function(){
+          var url = '<?php echo e(url('estado')); ?>/' + $(this).val() + '/municipios/';
+          console.log(url);
+          $.get(url, function(data) {
+            var select = $('form select[name=sel_municipio]');
+            select.empty();
+            $.each(data, function(key, value){
+              select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
+            });
+          });
+      });
+      $(function(){
+        $('select[name=sel_estado]').on("change", function(){
+          var url = '<?php echo e(url('estado')); ?>/' + $(this).val() + '/municipios/';
+          console.log(url);
+          $.get(url, function(data) {
+            var select = $('form select[name=sel_municipio]');
+            var clean = $('form select[name=sel_parroquia]');
+            select.empty();
+            clean.empty();
+            $.each(data, function(key, value){
+              select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
+            });
+          });
+        });
+      });
+      $(function(){
+        $('select[name=sel_municipio]').on("change", function(){
+          var url = '<?php echo e(url('municipio')); ?>/' + $(this).val() + '/parroquias/';
+          console.log(url);
+          $.get(url, function(data) {
+            var select = $('form select[name=sel_parroquia]');
+            select.empty();
+            $.each(data, function(key, value){
+              select.append('<option value="'+value.id_lug+'">'+value.nombre_lug+'</option>');
+            });
+          });
+        });
+      });
+      $(function(){
+        $('select[name=sel_parroquia]').on("change", function(){
+
+        });
+      });
+      $(function(){
+          var url = '<?php echo e(url('estado')); ?>/' + $(this).val() + '/municipios/';
+          console.log(url);
+          $.get(url, function(data) {
+            var select = $('form select[name=sel_municipio]');
+            select.empty();
+            $.each(data, function(key, value){
+              select.append('<option value="'+value.nombre_lug+'">'+value.nombre_lug+'</option>');
+            });
           });
       });
   </script>
