@@ -40,7 +40,7 @@
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-home"></i>
-                        Tienda
+                        Tiendas
                     </a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -51,6 +51,48 @@
                         </li>
                         <li>
                             <a href="#">Registrar compra</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#productoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-clipboard-list"> </i>
+                        Productos
+                    </a>
+                    <ul class="collapse list-unstyled" id="productoSubmenu">
+                        <li>
+                            <a href="{{ url('/admin/producto/crear') }}">Crear producto</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/productos') }}">Lista de productos</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#clienteSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-users"> </i>
+                        Clientes
+                    </a>
+                    <ul class="collapse list-unstyled" id="clienteSubmenu">
+                        <li>
+                            <a href="{{ url('/admin/cliente/crear') }}">Crear cliente</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/clientes') }}">Lista de clientes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-user-circle"> </i>
+                        Usuarios
+                    </a>
+                    <ul class="collapse list-unstyled" id="usuariosSubmenu">
+                        <li>
+                            <a href="{{ url('/admin/usuario/crear') }}">Crear usuario</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/usuarios') }}">Lista de usuarios</a>
                         </li>
                     </ul>
                 </li>
@@ -157,5 +199,18 @@
             });
           });
       });
+      function mostrarCampo(c){
+        if(c.value == "1"){
+          document.getElementById("cliente").style.display='block';
+          document.getElementById("personal").style.display='none';
+          document.getElementById("clienteR").attributes.required=true;
+          document.getElementById("personalR").removeAttribute("required");
+        } else if(c.value =="2") {
+          document.getElementById("cliente").style.display='none';
+          document.getElementById("personal").style.display='block';
+          document.getElementById("personalR").attributes.required=true;
+          document.getElementById("clienteR").removeAttribute("required");
+        }
+      }
   </script>
 </html>
