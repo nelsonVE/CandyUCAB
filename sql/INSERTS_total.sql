@@ -2687,7 +2687,6 @@ INSERT INTO "per_con" (cedula_per,nombre_per,fk_cli,apellido_per) VALUES
  (22940778,'Alea',82,'Henderson'),
  (27299363,'Finn',82,'Heath');
 
-<<<<<<< HEAD
 INSERT INTO zona (letra_zon, fk_pas) VALUES
 ('A', 1),
 ('A', 2),
@@ -2891,7 +2890,6 @@ INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06
 INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,98);
 INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,99);
 INSERT INTO "zon_car" (cantidad_zca,fecha_zca,fk_car,fk_zon) VALUES (99,'2018-06-22 00:00',1,100);
-<<<<<<< HEAD
 
 INSERT INTO estatus(estatus_est) VALUES(1),(2),(3);
 
@@ -3047,8 +3045,3 @@ INSERT INTO "pago" (banco_che,numero_che,fecha_che,nro_cuenta_che,fk_cli,tipo) V
 INSERT INTO "pago" (banco_che,numero_che,fecha_che,nro_cuenta_che,fk_cli,tipo) VALUES ('Bicentenario','1662061857699','2018-06-05','16799949592314614453',162,3);
 INSERT INTO "pago" (banco_che,numero_che,fecha_che,nro_cuenta_che,fk_cli,tipo) VALUES ('Bicentenario','1603111193899','2018-06-12','63780313258736932912',163,3);
 INSERT INTO "pago" (banco_che,numero_che,fecha_che,nro_cuenta_che,fk_cli,tipo) VALUES ('Bicentenario','1617032081499','2018-06-15','87675691039743452116',164,3);
-
-=======
-=======
->>>>>>> 79e7e99cf6f3cd469cf3b25e54b85badbac11cda
->>>>>>> 5daa7c4d6df28c03f70723a33942b9595b7b9005
