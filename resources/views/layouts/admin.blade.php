@@ -113,7 +113,7 @@
                             <a href="{{ url('/admin/diario/oferta/crear') }}">Crear oferta</a>
                         </li>
                         <li>
-                            <a href="{{ url('/admin/diario/forzar') }}">Forzar emisión</a>
+                            <a href="/admin/diario/forzar">Forzar emisión</a>
                         </li>
                     </ul>
                 </li>

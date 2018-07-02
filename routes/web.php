@@ -28,6 +28,16 @@ Route::get('/panel/tienda', 'TiendaController@getIndex');
 Route::get('/panel/tienda/candy', 'TiendaController@getShop');
 Route::post('/panel/tienda/sitio', 'TiendaController@setSitio');
 Route::get('/panel/tienda/candy/agregar/{id_car}', 'TiendaController@addCarrito');
+Route::post('/panel/tienda/candy/procesar', 'TiendaController@procesarArticulo');
+Route::get('/panel/tienda/carrito', 'TiendaController@verCarrito');
+Route::get('/panel/tienda/candy/carrito/procesar', 'TiendaController@procesarCarrito');
+Route::get('/panel/tienda/candy/carrito/presupuesto', 'TiendaController@hacerPresupuesto');
+Route::get('/panel/tienda/candy/carrito/presupuesto/ok', 'TiendaController@finPresupuesto');
+Route::get('/panel/tienda/candy/error', 'TiendaController@indexError');
+
+
+// Panel - Misceláneo
+Route::get('/panel/diario', 'DiarioController@verDiario');
 
 // Información de la página
 Route::get('/productos', 'ProductoController@getIndex');
@@ -78,3 +88,4 @@ Route::post('/admin/roles/{rol}/guardar', 'RolController@guardarRol');
 Route::get('/admin/diario/ofertas/{estado?}', 'DiarioController@verOfertas');
 Route::get('/admin/diario/oferta/crear', 'DiarioController@indexCrearOferta');
 Route::post('/admin/diario/oferta/validar', 'DiarioController@crearOferta');
+Route::get('/admin/diario/forzar', 'DiarioController@emitirDiario');

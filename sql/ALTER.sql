@@ -1,4 +1,6 @@
 ALTER TABLE lugar ADD CONSTRAINT fk_id_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
+ALTER TABLE pedido ADD CONSTRAINT fk_ped_presupuesto FOREIGN KEY(fk_pre) REFERENCES presupuesto(id_pre);
+ALTER TABLE diario ADD CONSTRAINT fk_id_personal FOREIGN KEY(fk_per) REFERENCES personal(id_per);
 ALTER TABLE cliente ADD CONSTRAINT fk_cli_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);
 ALTER TABLE usuario ADD CONSTRAINT fk_usr_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
 ALTER TABLE cliente ADD CONSTRAINT fk_cli_jur_lugar FOREIGN KEY(fk_lug) REFERENCES lugar(id_lug);

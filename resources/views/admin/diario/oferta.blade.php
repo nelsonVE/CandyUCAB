@@ -23,6 +23,12 @@ $fecha_actual = date('Y-m-d');
       <h5>Oferta generada con éxito</h5>
     </div>
     @break
+
+  @case(3)
+    <div class="alert alert-success text-center" role="alert">
+      <h5>¡Diario dulce emitido con éxito!</h5>
+    </div>
+    @break
 @endswitch
 <!--Table-->
 <table class="table">

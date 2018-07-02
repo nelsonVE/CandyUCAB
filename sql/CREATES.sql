@@ -216,6 +216,7 @@ CREATE TABLE presupuesto (
   fk_usu INT,
   fk_tie INT,
   fk_cli INT,
+  total_pre BIGINT NOT NULL,
   CONSTRAINT pk_presupuesto PRIMARY KEY(id_pre)
 );
 
@@ -233,6 +234,7 @@ CREATE TABLE pedido (
   fk_usu INT ,
   fK_tie INT ,
   fk_cli INT,
+  fk_pre INT,
   CONSTRAINT pk_pedido PRIMARY KEY(id_ped)
 );
 
@@ -293,5 +295,11 @@ CREATE TABLE car_ing(
 	fk_car INT,
 	fk_ing INT,
 	CONSTRAINT pk_car_ing PRIMARY KEY(id_cig,fK_car,fk_ing)
+);
 
+CREATE TABLE diario(
+  id_dia SERIAL,
+  fk_per INT,
+  fecha_emision_dia DATE,
+  CONSTRAINT pk_diario PRIMARY KEY(id_dia)
 );

@@ -51,6 +51,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ $usuario }}</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/panel/perfil">Perfil</a>
+                    <a class="dropdown-item" href="/panel/tienda/carrito">Carrito</a>
                     <a class="dropdown-item" href="/panel/configuracion">Configuración</a>
                     @if($rol > 1)
                     <a class="dropdown-item" href="/admin">Administración</a>

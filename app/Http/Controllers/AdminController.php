@@ -45,14 +45,16 @@ class AdminController extends Controller
         foreach($pasillos as $pasillo){
           $zonas = \DB::table('zona')->where('fk_pas', $pasillo->id_pas)->get();
           foreach($zonas as $zona){
-            $zoncar = \DB::table('zon_car')->select('cantidad_zca')->where('fk_zon', $zona->id_zon)->orderby('fecha_zca', 'desc')->first()->cantidad_zca;
-            if($zoncar <= 100){
-              $faltantes[] = [
-                'letra_zon' => $zona->letra_zon,
-                'cantidad' => $zoncar,
-                'tienda' => $tienda,
-                'pasillo' => $pasillo->numero_pas
-              ];
+            $zoncar = \DB::table('zon_car')->select('cantidad_zca')->where('fk_zon', $zona->id_zon)->orderby('fecha_zca', 'desc')->first();
+            if($zoncar){
+              if($zoncar->cantidad_zca <= 100){
+                $faltantes[] = [
+                  'letra_zon' => $zona->letra_zon,
+                  'cantidad' => $zoncar->cantidad_zca,
+                  'tienda' => $tienda,
+                  'pasillo' => $pasillo->numero_pas
+                ];
+              }
             }
           }
         }
@@ -78,18 +80,19 @@ class AdminController extends Controller
         foreach($pasillos as $pasillo){
           $zonas = \DB::table('zona')->where('fk_pas', $pasillo->id_pas)->get();
           foreach($zonas as $zona){
-            $zoncar = \DB::table('zon_car')->select(['cantidad_zca', 'fk_car'])->where('fk_zon', $zona->id_zon)->orderby('fecha_zca')->get();
+            $zoncar = \DB::table('zon_car')->select(['cantidad_zca', 'fk_car'])->where('fk_zon', $zona->id_zon)->orderby('fecha_zca')->first();
             $fecha = date('Y-m-d H:i:s');
-
-            if($zoncar[0]->cantidad_zca <= 100){
-              \DB::table('zon_car')->insert([
-                [
-                  'fecha_zca' => $fecha,
-                  'cantidad_zca' => ($zoncar[0]->cantidad_zca)+10000,
-                  'fk_zon' => $zona->id_zon,
-                  'fk_car' => $zoncar[0]->fk_car
-                ]
-              ]);
+            if($zoncar){
+              if($zoncar->cantidad_zca <= 100){
+                \DB::table('zon_car')->insert([
+                  [
+                    'fecha_zca' => $fecha,
+                    'cantidad_zca' => ($zoncar->cantidad_zca)+10000,
+                    'fk_zon' => $zona->id_zon,
+                    'fk_car' => $zoncar->fk_car
+                  ]
+                ]);
+              }
             }
           }
         }

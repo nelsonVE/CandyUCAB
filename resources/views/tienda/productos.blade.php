@@ -8,7 +8,7 @@ CandyUcab - Tienda
 <div class="container-fluid"  style="background-color: rgba(0,0,0,0.5);">
   <div class="row pt-5 pb-5">
     @foreach($disponibles as $disponible)
-    <div class="col-md-2 pt-4">
+    <div class="col-lg-3 col-md-4 pt-4">
       <div class="card">
         <img class="card-img-top" src="{!! asset($productos[$disponible['fk_car']]->url_car) !!}" style="max-height: 200px;">
         <div class="card-body">

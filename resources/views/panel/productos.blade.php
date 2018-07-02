@@ -1,5 +1,9 @@
 @extends('layouts.panel')
 
+@section('titulo')
+CandyUcab - Productos
+@endsection
+
 @section('contenido')
 <div class="container-fluid pt-1 pb-5"  style="background-color: rgba(0,0,0,0.5);">
   <div class="row">

@@ -51,6 +51,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e($usuario); ?></a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="/panel/perfil">Perfil</a>
+                    <a class="dropdown-item" href="/panel/tienda/carrito">Carrito</a>
                     <a class="dropdown-item" href="/panel/configuracion">Configuración</a>
                     <?php if($rol > 1): ?>
                     <a class="dropdown-item" href="/admin">Administración</a>
@@ -64,7 +65,7 @@
     </nav>
     <?php echo $__env->yieldContent('contenido'); ?>
     <script src="<?php echo asset('js/jquery-3.3.1.slim.min.js'); ?>"></script>
-    <script src="<?php echo asset('mdb/js/jquery-3.3.1.js'); ?>"></script>
+    <script src="<?php echo asset('mdb/js/jquery-3.3.1.min.js'); ?>"></script>
     <!-- Bootstrap tooltips -->
     <script src="<?php echo asset('mdb/js/popper.min.js'); ?>"></script>
     <!-- Bootstrap core JavaScript -->
