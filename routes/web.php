@@ -68,3 +68,13 @@ Route::post('/admin/usuarios/{usuario}/guardar', 'UsuarioController@guardarUsuar
 Route::get('/admin/usuarios/{usuario}/eliminar', 'UsuarioController@eliminarUsuario');
 Route::get('/admin/usuario/crear', 'UsuarioController@IndexCrearUsuario');
 Route::post('/admin/usuario/crear/validar', 'UsuarioController@crearUsuario');
+
+// Administración - Roles
+Route::get('/admin/roles/{estado?}', 'RolController@verRoles');
+Route::get('/admin/roles/{rol}/editar', 'RolController@editarRol');
+Route::post('/admin/roles/{rol}/guardar', 'RolController@guardarRol');
+
+// Administración - Diario Dulce
+Route::get('/admin/diario/ofertas/{estado?}', 'DiarioController@verOfertas');
+Route::get('/admin/diario/oferta/crear', 'DiarioController@indexCrearOferta');
+Route::post('/admin/diario/oferta/validar', 'DiarioController@crearOferta');

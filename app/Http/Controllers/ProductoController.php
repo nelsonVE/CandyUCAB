@@ -24,7 +24,7 @@ class ProductoController extends Controller
 
     public function verProductos($estado = 0, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $productos = \DB::table('caramelo')->get();
@@ -42,7 +42,7 @@ class ProductoController extends Controller
 
     public function editarProducto($producto_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $producto = \DB::table('caramelo')->where('id_car', $producto_id)->first();
@@ -62,7 +62,7 @@ class ProductoController extends Controller
 
     public function eliminarProducto($producto_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         \DB::table('zon_car')->where('fk_car', $producto_id)->delete();
@@ -77,7 +77,7 @@ class ProductoController extends Controller
 
     public function guardarProducto($producto_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $this->validate($request, [

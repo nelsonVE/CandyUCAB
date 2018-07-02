@@ -37,6 +37,9 @@
               <a class="nav-link" href="/panel/tienda">Tienda</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/panel/diario">Diario dulce</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/contacto">Contáctanos</a>
             </li>
             <li class="nav-item">
@@ -61,7 +64,7 @@
     </nav>
     @yield('contenido')
     <script src="{!! asset('js/jquery-3.3.1.slim.min.js') !!}"></script>
-    <script src="{!! asset('mdb/js/jquery-3.3.1.js') !!}"></script>
+    <script src="{!! asset('mdb/js/jquery-3.3.1.min.js') !!}"></script>
     <!-- Bootstrap tooltips -->
     <script src="{!! asset('mdb/js/popper.min.js') !!}"></script>
     <!-- Bootstrap core JavaScript -->

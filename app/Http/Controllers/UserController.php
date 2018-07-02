@@ -50,10 +50,19 @@ class UserController extends Controller
       $error = \Illuminate\Validation\ValidationException::withMessages([
          'password' => ['La combinación usuario/contraseña es incorrecta']
       ]);
+
+      $error_permiso = \Illuminate\Validation\ValidationException::withMessages([
+         'password' => ['Usted no posee permisos para entrar al sistema. Por favor contacte a un administrador']
+      ]);
+
       if($password == $contrasenha){
         $userinfo = \DB::table('usuario')->select('id_usu', 'fk_rol')->where('usuario', $usuario)->get();
         $request->session()->put('userid', $userinfo[0]->id_usu);
         $request->session()->put('rol', $userinfo[0]->fk_rol);
+
+        if(!checkPermiso($request->session()->get('rol'), 1))
+          throw $error_permiso;
+
         $request->session()->put('username', $usuario);
         return redirect('/panel');
       } else {

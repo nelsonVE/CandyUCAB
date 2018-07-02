@@ -10,7 +10,7 @@ CandyUcab - Ver usuarios
 @switch((int)$estado)
   @case(-4)
     <div class="alert alert-danger text-center" role="alert">
-      <h5>Solo los administradores tienen acceso a esta funcionalidad</h5>
+      <h5>No tienes acceso a esta función</h5>
     </div>
     @break
   @case(-3)

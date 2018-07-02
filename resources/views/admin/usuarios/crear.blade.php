@@ -5,7 +5,7 @@ CandyUcab - Crear usuario
 @endsection
 
 @section('contenido')
-<h1>Creación de tiendas</h1>
+<h1>Creación de usuarios</h1>
 <div class="col-md-12 col-sm-12 bg-content p-5">
   <form action="{{ url('/admin/usuario/crear/validar') }}" role="form" method="post">
       @if (count($errors) > 0)

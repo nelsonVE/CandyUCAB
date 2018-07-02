@@ -1,83 +1,3 @@
-INSERT INTO rol (tipo) VALUES
-('usuario'),
-('empleado'),
-('jefe de pasillo'),
-('gerente'),
-('encargado de compras'),
-('supervisor'),
-('encargado'),
-('jefe'),
-('administrador'),
-('desarrollador');
-
-INSERT INTO permiso (desc_per) VALUES
-('Usuario común en el sistema'),
-('Funcionalidades básicas de un empleado'),
-('Administración de inventario'),
-('Generación de ofertas'),
-('Aprobar órdenes de compra'),
-('Administrar empleados de una tienda'),
-('Administrar gerentes y empleados de una tienda'),
-('Administrar el personal de todas las tiendas'),
-('Acceso a la información de la web'),
-('Acceso a información de la BD');
-
-INSERT INTO rol_per (fk_per, fk_rol) VALUES
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%usuario%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%empleado%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%empleado%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%pasillo%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
-(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%gerente%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
-(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%compras%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-(4,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-(6,(SELECT id_rol FROM rol WHERE tipo LIKE '%supervisor%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(2,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(3,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(4,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(5,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(6,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-(7,(SELECT id_rol FROM rol WHERE tipo = 'encargado')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
-(2,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
-(3,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
-(5,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
-(8,(SELECT id_rol FROM rol WHERE tipo = 'jefe')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-(8,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-(9,(SELECT id_rol FROM rol WHERE tipo LIKE '%administrador%')),
-
-(1,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(2,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(3,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(5,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(8,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(9,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%')),
-(10,(SELECT id_rol FROM rol WHERE tipo LIKE '%desarrollador%'));
-
 INSERT INTO lugar(id_lug,nombre_lug,tipo_lug,fk_lug) VALUES
 (1   ,'Amazonas','Estado',null),
 (2   ,'Anzoategui','Estado',null),
@@ -1975,7 +1895,7 @@ INSERT INTO personal(cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, fec
   ('23636685','Ignacia','Catanalina','Trump','Achundia','2013-10-23',4584575,41,205,1360);
 
 
-  INSERT INTO cliente (correo_cli,den_com_jur,capital_jur,pag_web_jur,rif_cli,tipo,raz_soc_jur,fk_lug,fk_lug_jur) VALUES 
+  INSERT INTO cliente (correo_cli,den_com_jur,capital_jur,pag_web_jur,rif_cli,tipo,raz_soc_jur,fk_lug,fk_lug_jur) VALUES
 ('sit.amet.nulla@dictum.co.uk','Eget Foundation',1277210.51,'www.IdonaQDrake.com','J293570235',1,'Eget Foundation Perez y Asociados SRL',771,769),
 ('justo.Proin.non@diamatpretium.co.uk','Diam Dictum Sapien Industries',8122715.77,'www.VivienIStein.com','J185223356',1,'Diam Dictum Sapien Industries CA',1240,1241),
 ('Nulla@temporloremeget.edu','Arcu ndustries',814797.34,'www.VivianBBarnett.com','J250832867',1,'Arcu Industries CA',1293,1293),
@@ -2059,7 +1979,7 @@ INSERT INTO personal(cedula_per, nombre_1, nombre_2, apellido_1, apellido_2, fec
 ('aprovechalanota@hotmail.com','Laboratorios Aprovecha',8234311.65,'www.laboratoriodelplacer.com','J163590367',1,'Laboratorios Aprovecha Gonzalo y lopez SLR',1352,1355),
 ('augue.ut@nislMaecenas.com','Camara Provocativa aprieta',6195223.08,'camasbuenas.com','J168491087',1,'Camara Provocativa aprieta CA',427,427);
 
-INSERT INTO cliente (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_nat,apellido_1_nat,apellido_2_nat,fk_lug) VALUES 
+INSERT INTO cliente (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_nat,apellido_1_nat,apellido_2_nat,fk_lug) VALUES
 ('J196338360','cursus.diam@utdolordapibus.co.uk',0,25083214,'Holmes','Sawyer','Pitts','Simmons',740),
 ('J175702538','pretium.neque.Morbi@fringillapurus.ca',0,28444108,'Britanni','Valentine','Frazier','Pope',971),
 ('J253723746','dictum.eu@acfeugiat.net',0,5020526,'Zephania','Paula','Haley','Middleton',1366),
@@ -2141,7 +2061,7 @@ INSERT INTO cliente (rif_cli,correo_cli,tipo,cedula_nat,nombre_1_nat,nombre_2_na
 ('J167565410','Nullam.velit@atpedeCras.net',0,7343908,'Quail','Burke','Robinson','Erickson',1100),
 ('J204578369','faucibus.id.libero@Praesenteu.org',0,27352190,'Nathan','Lucy','Powers','Mosley',770),
 ('J290782089','elit.Nulla@ami.net',0,25854393,'Adam','Macaulay','Atkinson','Knapp',367),
-('J207684998','natoque.penatibus@molestie.com',0,23758249,'Velma','Xavier','Lindsey','Hubbard',1161); 
+('J207684998','natoque.penatibus@molestie.com',0,23758249,'Velma','Xavier','Lindsey','Hubbard',1161);
 
 INSERT INTO rol(tipo) VALUES
 ('usuario'),
@@ -2163,9 +2083,9 @@ INSERT INTO permiso (desc_per) VALUES
 ('Aprobar órdenes de compra'),
 ('Administrar empleados de una tienda'),
 ('Administrar gerentes y empleados de una tienda'),
-('Administrar el personal de todas las tiendas'),
-('Acceso a la información de la web'),
-('Acceso a información de la BD');
+('Administrar el personal y usuarios de todas las tiendas'),
+('Acceso a la información de la web, puede asignar permisos'),
+('Acceso a información de la web + todos los permisos');
 
 INSERT INTO rol_per (fk_per, fk_rol) VALUES
 (1,(SELECT id_rol FROM rol WHERE tipo LIKE '%usuario%')),
@@ -2437,7 +2357,7 @@ INSERT INTO zona (letra_zon, fk_pas) VALUES
  ('Ann.Washington.15','personal',81,6),
  ('Baxter.Jordan.15','personal',82,2);
 
-INSERT INTO usuario (usuario,contrasenha,fk_cli,fk_rol) VALUES 
+INSERT INTO usuario (usuario,contrasenha,fk_cli,fk_rol) VALUES
 ('yonder.gomez.16','cliente',1,1),
 ('Faith.Green.16','cliente',2,1),
 ('Kyra.Garrett.16','cliente',3,1),
@@ -2521,7 +2441,7 @@ INSERT INTO usuario (usuario,contrasenha,fk_cli,fk_rol) VALUES
 ('Patrick.Serrano.16','cliente',81,1),
 ('Rae.Jacobs.16','cliente',82,1);
 
-INSERT INTO "per_con" (cedula_per,nombre_per,fk_cli,apellido_per) VALUES 
+INSERT INTO "per_con" (cedula_per,nombre_per,fk_cli,apellido_per) VALUES
 (25270695,'Yasir',1,'Wells'),
 (26407996,'Vivian',1,'Aguirre'),
 (28851232,'Oleg',2,'Henson'),
@@ -2907,7 +2827,7 @@ INSERT INTO punto(valor_pun,fecha_pun,fk_cli) VALUES
 (90,'01-21-2018',9),
 (95,'03-30-2018',10);
 
- INSERT INTO "pago" (tipo,ult_tres_digitos_cre,nro_tarjeta_cre,tipo_cre,fecha_venc_cre,fk_cli) VALUES 
+ INSERT INTO "pago" (tipo,ult_tres_digitos_cre,nro_tarjeta_cre,tipo_cre,fecha_venc_cre,fk_cli) VALUES
  (1,'216','02741347107071043072',2,'18-11-17',1),
  (1,'380','06800594568669696053',3,'29-05-19',2),
  (1,'460','30389947158637568053',2,'23-05-18',3),

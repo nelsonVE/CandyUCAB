@@ -94,9 +94,29 @@
                         <li>
                             <a href="{{ url('/admin/usuarios') }}">Lista de usuarios</a>
                         </li>
+                        <li>
+                            <a href="{{ url('/admin/roles') }}">Administrar roles</a>
+                        </li>
                     </ul>
                 </li>
-                @if($rol > 4)
+                @if(checkPermiso($rol, 4))
+                <li>
+                    <a href="#diarioSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-book-open"> </i>
+                        Diario Dulce
+                    </a>
+                    <ul class="collapse list-unstyled" id="diarioSubmenu">
+                        <li>
+                            <a href="{{ url('/admin/diario/ofertas') }}">Ver oferta</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/diario/oferta/crear') }}">Crear oferta</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('/admin/diario/forzar') }}">Forzar emisión</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="{{ url('/admin/hacerinv') }}">
                         <i class="fas fa-box-open"></i>
