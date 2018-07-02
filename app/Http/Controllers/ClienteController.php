@@ -8,7 +8,7 @@ class ClienteController extends Controller
 {
   public function verClientes($estado = 0, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       $clientes = \DB::table('cliente')->get();
@@ -26,7 +26,7 @@ class ClienteController extends Controller
 
   public function eliminarCliente($cliente_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       \DB::table('telefono')->where('fk_cli', $cliente_id)->delete();
@@ -47,7 +47,7 @@ class ClienteController extends Controller
 
   public function editarCliente($cliente_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
       $lugar = \DB::table('lugar')->get();
       $cliente = \DB::table('cliente')->where('id_cli', $cliente_id)->first();
@@ -68,7 +68,7 @@ class ClienteController extends Controller
 
   public function guardarCliente($cliente_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       $cliente = \DB::table('cliente')->select('tipo')->where('id_cli', $cliente_id)->get();

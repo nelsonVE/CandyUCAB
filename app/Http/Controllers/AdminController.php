@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     public function getIndex(Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         return \View::make('admin.index', [
@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function notificaciones(Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         return \View::make('admin.notificaciones', [
@@ -36,7 +36,7 @@ class AdminController extends Controller
 
     public function makeInventario(Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $usuario = \DB::table('usuario')->select('fk_per')->where('id_usu', $request->session()->get('userid'))->first()->fk_per;
@@ -70,7 +70,7 @@ class AdminController extends Controller
 
     public function reponerInventario($tienda, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $pasillos = \DB::table('pasillo')->where('fk_tie', $tienda)->get();

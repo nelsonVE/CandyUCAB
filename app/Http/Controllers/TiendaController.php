@@ -87,7 +87,7 @@ class TiendaController extends Controller
 
     public function indexCrearTienda(Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $lugar = \DB::table('lugar')->get();
@@ -104,7 +104,7 @@ class TiendaController extends Controller
 
     public function crearTienda(Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $this->validate($request, [
@@ -130,7 +130,7 @@ class TiendaController extends Controller
 
     public function verTiendas($estado = 0, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $tiendas = \DB::table('tienda')->get();
@@ -148,7 +148,7 @@ class TiendaController extends Controller
 
     public function editarTienda($tienda_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         $tienda = \DB::table('tienda')->where('id_tie', $tienda_id)->first();
@@ -168,7 +168,7 @@ class TiendaController extends Controller
 
     public function guardarTienda($tienda_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
 
         \DB::table('tienda')->where('id_tie', $tienda_id)->update(['nombre_tie' => $request->nombre]);
@@ -179,7 +179,7 @@ class TiendaController extends Controller
 
     public function eliminarTienda($tienda_id, Request $request){
       if($request->session()->has('userid') && $request->session()->has('rol')){
-        if($request->session()->get('rol') < 1)
+        if(!checkPermiso($request->session()->get('rol'), 2))
           return redirect('/panel');
         $empleados = \DB::table('personal')->where('fk_tie', $tienda_id)->get();
         foreach($empleados as $empleado){

@@ -37,6 +37,9 @@
               <a class="nav-link" href="/panel/tienda">Tienda</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/panel/diario">Diario dulce</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/contacto">Contáctanos</a>
             </li>
             <li class="nav-item">

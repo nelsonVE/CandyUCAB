@@ -8,7 +8,7 @@ class UsuarioController extends Controller
 {
   public function verUsuarios($estado = 0, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       $usuarios = \DB::table('usuario')->get();
@@ -26,10 +26,10 @@ class UsuarioController extends Controller
 
   public function editarUsuario($usuario_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
-      if($request->session()->get('rol') < 9)
+      if(!checkPermiso($request->session()->get('rol'), 8))
         return redirect('/admin/usuarios/-4');
 
       $usuario = \DB::table('usuario')->where('id_usu', $usuario_id)->first();
@@ -50,7 +50,7 @@ class UsuarioController extends Controller
 
   public function guardarUsuario($usuario_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       $this->validate($request, [
@@ -69,10 +69,10 @@ class UsuarioController extends Controller
 
   public function eliminarUsuario($usuario_id, Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
-      if($request->session()->get('rol') < 9)
+      if(!checkPermiso($request->session()->get('rol'), 8))
         return redirect('/admin/usuarios/-4');
 
       if(\DB::table('usuario')->where('id_usu', $usuario_id)->delete())
@@ -85,10 +85,10 @@ class UsuarioController extends Controller
 
   public function indexCrearUsuario(Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
-      if($request->session()->get('rol') < 9)
+      if(!checkPermiso($request->session()->get('rol'), 8))
         return redirect('/admin/usuarios/-4');
 
       $roles = \DB::table('rol')->get();
@@ -105,7 +105,7 @@ class UsuarioController extends Controller
 
   public function crearUsuario(Request $request){
     if($request->session()->has('userid') && $request->session()->has('rol')){
-      if($request->session()->get('rol') < 1)
+      if(!checkPermiso($request->session()->get('rol'), 2))
         return redirect('/panel');
 
       $this->validate($request, [
