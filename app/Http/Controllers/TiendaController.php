@@ -110,7 +110,7 @@ class TiendaController extends Controller
         }
 
         if(!$hay_stock)
-          return redirect('/panel/tienda/candy/error');
+          return redirect('/panel/tienda/candy/error/1');
 
         $producto = [
           'id_car' => $id_car,
@@ -124,7 +124,25 @@ class TiendaController extends Controller
       return redirect('/');
     }
 
-    public function realizarCompra(Request $request){
+    public function seleccionarMetodo(Request $request){
+      if($request->session()->has('userid')){
+
+        if(!$request->session()->has('id_tie'))
+          return redirect('/panel/tienda');
+
+        if(!$request->session()->has('carrito'))
+          return redirect('/panel/tienda');
+
+          return \View::make('panel.tipopago', [
+            'usuario' => $request->session()->get('username'),
+            'rol' => $request->session()->get('rol'),
+            'userid' => $request->session()->get('userid')
+          ]);
+      }
+      return redirect('/');
+    }
+
+    public function procesarCarrito(Request $request){
       if($request->session()->has('userid')){
 
         if(!$request->session()->has('id_tie'))
@@ -134,6 +152,8 @@ class TiendaController extends Controller
           return redirect('/panel/tienda');
 
         $fecha_actual = date('Y-m-d');
+        $fecha_fin = date('Y-m-d H:m:s', strtotime("+2 hour"));
+        $hora_actual = date('H:m:s');
         $productos = $request->session()->get('carrito');
         $caramelos = \DB::table('caramelo')->get();
         $ofe_car = \DB::table('ofe_car')->get();
@@ -165,34 +185,80 @@ class TiendaController extends Controller
 
         $fk_cli = \DB::table('usuario')->select('fk_cli')->where('id_usu', $request->session()->get('userid'))->get();
         if(!$fk_cli[0])
-          return dd('Solo los clientes pueden hacer presupuestos, los empleados no.');
+          return dd('Solo los clientes pueden realizar compras, los empleados no.');
 
-        \DB::table('presupuesto')->insert([
+        \DB::table('pedido')->insert([
           'fk_tie' => $request->session()->get('id_tie'),
-          'fk_usu' => $request->session()->has('userid'),
+          'fk_usu' => $request->session()->get('userid'),
           'fk_cli' => $fk_cli[0]->fk_cli,
-          'fecha_pre' => $fecha_actual,
-          'total_pre' => $total_pagar
+          'fecha_ped' => $fecha_actual,
+          'hora_ped' => $hora_actual
         ]);
 
-        $fk_pre = \DB::table('presupuesto')->select('id_pre')->orderBy('id_pre', 'desc')->first();
+        $fk_ped = \DB::table('pedido')->select('id_ped')->orderBy('id_ped', 'desc')->first();
 
-        if(!$fk_pre)
-          return dd('ERROR: fk_pre en TiendaControl devuelve null.');
+        if(!$fk_ped)
+          return dd('ERROR: fk_ped en TiendaControl devuelve null.');
 
-        for($i = 0; $i < count($productos); $i++){
-          foreach($caramelos as $caramelo){
-            if($caramelo->id_car == $productos[$i]['id_car']){
-              \DB::table('pre_car')->insert([
-                'fk_pre' => $fk_pre->id_pre,
-                'fk_car' => $caramelo->id_car
-              ]);
-              break;
+        if($request->tipopago == 1){
+          $total_punto = 0;
+          $puntos = \DB::table('punto')->where('fk_cli', $fk_cli[0]->fk_cli)->get();
+          foreach($puntos as $punto){
+            if(!$punto->fk_ped){
+              $total_punto += $punto->valor_pun;
             }
           }
+
+          if($total_punto < $total_pagar)
+            return redirect('/panel/tienda/candy/error/5');
+
+          $total_punto = 0;
+
+          foreach($puntos as $punto){
+            if(!$punto->fk_ped){
+              $total_punto += $punto->valor_pun;
+              \DB::table('punto')->where('id_pun', $punto->id_pun)->update(['fk_ped' => $fk_ped->id_ped]);
+              if($total_punto >= $total_pagar)
+                break;
+            }
+          }
+
+        } else {
+
+          for($i = 0; $i < count($productos); $i++){
+            foreach($caramelos as $caramelo){
+              if($caramelo->id_car == $productos[$i]['id_car']){
+                \DB::table('car_ped')->insert([
+                  'fk_ped' => $fk_ped->id_ped,
+                  'fk_car' => $caramelo->id_car,
+                  'precio_car' => $caramelo->precio_car,
+                  'cantidad_car' => $productos[$i]['cantidad']
+                ]);
+                break;
+              }
+            }
+          }
+
+          $fk_pag = \DB::table('pago')->select('id_pag')->where('fk_cli', $request->session()->get('userid'))->first();
+          if(!$fk_pag)
+            return dd('ERROR: fk_pag retorna NULL en TiendaControl (procesarCarrito)');
+
+          \DB::table('pag_car_ped')->insert([
+            'monto_ped' => $total_pagar,
+            'fk_pag' => $fk_pag->id_pag,
+            'fk_ped' => $fk_ped->id_ped
+          ]);
+
+          \DB::table('ped_est')->insert([
+            'fecha_ini' => $fecha_actual.' '.$hora_actual,
+            'fecha_fin' => $fecha_fin,
+            'fk_est' => 1,
+            'fk_ped' => $fk_ped->id_ped
+          ]);
         }
 
-        return redirect('/panel/tienda/candy/carrito/presupuesto/ok');
+        $request->session()->forget('carrito');
+        return redirect('/panel/tienda/candy/error/4');
       }
       return redirect('/');
     }
@@ -242,7 +308,7 @@ class TiendaController extends Controller
 
         \DB::table('presupuesto')->insert([
           'fk_tie' => $request->session()->get('id_tie'),
-          'fk_usu' => $request->session()->has('userid'),
+          'fk_usu' => $request->session()->get('userid'),
           'fk_cli' => $fk_cli[0]->fk_cli,
           'fecha_pre' => $fecha_actual,
           'total_pre' => $total_pagar
@@ -285,7 +351,7 @@ class TiendaController extends Controller
       return redirect('/');
     }
 
-    public function indexError(Request $request){
+    public function indexError($error, Request $request){
       if($request->session()->has('userid')){
 
         if(!$request->session()->has('id_tie'))
@@ -294,7 +360,8 @@ class TiendaController extends Controller
         return \View::make('panel.error', [
           'usuario' => $request->session()->get('username'),
           'rol' => $request->session()->get('rol'),
-          'userid' => $request->session()->get('userid')
+          'userid' => $request->session()->get('userid'),
+          'error' => $error
         ]);
       }
       return redirect('/');

@@ -47,5 +47,5 @@ ALTER TABLE car_ing ADD CONSTRAINT fk_ing_car FOREIGN KEY(fk_ing) REFERENCES ing
 ALTER TABLE ped_est ADD CONSTRAINT fk_ped_est FOREIGN KEY(fk_est) REFERENCES estatus(id_est);
 ALTER TABLE ped_est ADD CONSTRAINT fk_est_ped FOREIGN KEY(fk_ped) REFERENCES pedido(id_ped);
 ALTER TABLE pago ADD CONSTRAINT fk_pago_cliente FOREIGN KEY(fk_cli) REFERENCES cliente(id_cli);
-ALTER TABLE pag_car_ped ADD CONSTRAINT fk_pago_car FOREIGN KEY(fk_ped_car,fk_car,fk_ped) REFERENCES car_ped(id_car,fk_car,fk_ped);
-ALTER TABLE pag_car_ped ADD CONSTRAINT fk_car_pago FOREIGN KEY(fk_pag) REFERENCES pago(id_pag);
+ALTER TABLE pag_car_ped ADD CONSTRAINT fk_pago_ped FOREIGN KEY(fk_ped) REFERENCES pedido(id_ped);
+ALTER TABLE pag_car_ped ADD CONSTRAINT fk_ped_pago FOREIGN KEY(fk_pag) REFERENCES pago(id_pag);

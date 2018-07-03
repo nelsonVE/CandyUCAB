@@ -241,6 +241,7 @@ CREATE TABLE pedido (
 CREATE TABLE car_ped (
   id_car SERIAL,
   cantidad_car INT NOT NULL,
+  precio_car INT,
   fK_car INT,
   fk_ped INT,
   CONSTRAINT pk_carped PRIMARY KEY(id_car,fk_car,fk_ped)
@@ -266,11 +267,9 @@ CREATE TABLE pago (
 CREATE TABLE pag_car_ped (
   id_ped SERIAL,
   monto_ped BIGINT NOT NULL,
-  fk_car INT,
   fk_ped INT,
-  fk_ped_car INT,
   fk_pag INT,
-  CONSTRAINT pk_pedpag PRIMARY KEY(id_ped, fk_ped, fk_pag,fk_ped_car,fk_car)
+  CONSTRAINT pk_pedpag PRIMARY KEY(id_ped, fk_ped, fk_pag)
 );
 
 
@@ -283,8 +282,8 @@ CREATE TABLE estatus (
 
 CREATE TABLE ped_est (
   id_ped SERIAL,
-  fecha_ini date not null,
-  fecha_fin date,
+  fecha_ini timestamp not null,
+  fecha_fin timestamp,
   fk_est INT REFERENCES estatus(id_est),
   fk_ped INT REFERENCES pedido(id_ped),
   CONSTRAINT pk_pedest PRIMARY KEY(id_ped,fk_est,fk_ped)
@@ -294,7 +293,7 @@ CREATE TABLE car_ing(
 	id_cig SERIAL,
 	fk_car INT,
 	fk_ing INT,
-	CONSTRAINT pk_car_ing PRIMARY KEY(id_cig,fK_car,fk_ing)
+	CONSTRAINT pk_car_ing PRIMARY KEY(id_cig,fk_car,fk_ing)
 );
 
 CREATE TABLE diario(

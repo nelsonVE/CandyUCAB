@@ -81,7 +81,7 @@ CandyUcab - Carrito
       </tbody>
       <!--Table body-->
     </table>
-    <button type="button" class="btn btn-pink" onclick="window.location='/panel/tienda/candy/carrito/procesar';" style="width:100%">Procesar la compra</button>
+    <button type="button" class="btn btn-pink" onclick="window.location='/panel/tienda/candy/carrito/tipopago';" style="width:100%">Procesar la compra</button>
     <button type="button" class="btn btn-green" onclick="window.location='/panel/tienda/candy/carrito/presupuesto';" style="width:100%">Realizar presupuesto</button>
   </div>
 </div>

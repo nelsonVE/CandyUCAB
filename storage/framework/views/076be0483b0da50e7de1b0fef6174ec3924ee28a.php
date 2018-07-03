@@ -1,3 +1,7 @@
+<?php $__env->startSection('titulo'); ?>
+CandyUcab - Productos
+<?php $__env->stopSection(); ?>
+
 <?php $__env->startSection('contenido'); ?>
 <div class="container-fluid pt-1 pb-5"  style="background-color: rgba(0,0,0,0.5);">
   <div class="row">

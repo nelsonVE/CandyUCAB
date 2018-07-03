@@ -21,6 +21,8 @@ Route::get('municipio/{municipio}/parroquias', 'EstadoController@getParroquias')
 
 // Panel principal del usuario
 Route::get('/panel', 'PanelController@getIndex');
+Route::get('/panel/configuracion', 'PanelController@getConfig');
+Route::post('/panel/configuracion/guardar', 'PanelController@guardarConfig');
 Route::get('/panel/salir', 'PanelController@logout');
 
 // Panel principal de la tienda online
@@ -30,11 +32,11 @@ Route::post('/panel/tienda/sitio', 'TiendaController@setSitio');
 Route::get('/panel/tienda/candy/agregar/{id_car}', 'TiendaController@addCarrito');
 Route::post('/panel/tienda/candy/procesar', 'TiendaController@procesarArticulo');
 Route::get('/panel/tienda/carrito', 'TiendaController@verCarrito');
-Route::get('/panel/tienda/candy/carrito/procesar', 'TiendaController@procesarCarrito');
+Route::post('/panel/tienda/candy/carrito/procesar', 'TiendaController@procesarCarrito');
 Route::get('/panel/tienda/candy/carrito/presupuesto', 'TiendaController@hacerPresupuesto');
 Route::get('/panel/tienda/candy/carrito/presupuesto/ok', 'TiendaController@finPresupuesto');
-Route::get('/panel/tienda/candy/error', 'TiendaController@indexError');
-
+Route::get('/panel/tienda/candy/error/{error}', 'TiendaController@indexError');
+Route::get('/panel/tienda/candy/carrito/tipopago', 'TiendaController@seleccionarMetodo');
 
 // Panel - Misceláneo
 Route::get('/panel/diario', 'DiarioController@verDiario');
